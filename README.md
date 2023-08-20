@@ -5,9 +5,7 @@
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-rm ~/.zshrc
-
-ln .zshrc ~/.zshrc
+cp -f .zshrc ~/.zshrc
 ```
 
 ## [Homebrew](https://brew.sh/index_fr)
@@ -22,7 +20,11 @@ TODO
 
 ## Terminal color and font
 
-TODO
+Color from https://github.com/one-dark/iterm-one-dark-theme
+iTerm2 > Settings... > Profiles > Colors > Color Presets... > Import... > One Dark.itermcolors
+
+Jet Brains Mono from https://www.nerdfonts.com/font-downloads
+
 
 ## Xcode
 
@@ -40,8 +42,22 @@ TODO
 
 ```
 brew install neovim
+
+cp -rf nvim ~/.config/nvim
+```
+
+Packer
+```
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}" --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+ ```
+
+RipGrep
+```
+brew install ripgrep
 ```
 
 ## ChatGPT
 
 TODO
+
