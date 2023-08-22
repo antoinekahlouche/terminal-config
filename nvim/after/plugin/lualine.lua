@@ -7,7 +7,8 @@ require('lualine').setup {
         disabled_filetypes = {
             statusline = {},
             winbar = {},
-            'packer', 'NvimTree'
+            'packer',
+            'NvimTree'
         },
         ignore_focus = {},
         always_divide_middle = true,
