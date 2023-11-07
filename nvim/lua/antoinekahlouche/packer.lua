@@ -6,9 +6,9 @@ return require('packer').startup(function(use)
 
     use 'navarasu/onedark.nvim'
 
-    use 'nvim-tree/nvim-web-devicons' 
+    use 'nvim-tree/nvim-web-devicons'
 
-    use 'nvim-tree/nvim-tree.lua' 
+    use 'nvim-tree/nvim-tree.lua'
 
     use {
         'nvim-lualine/lualine.nvim',
@@ -21,7 +21,7 @@ return require('packer').startup(function(use)
     }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-    use {'nvim-treesitter/nvim-treesitter',  run = ':TSUpdate' }
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
     use {
         'VonHeikemen/lsp-zero.nvim',
