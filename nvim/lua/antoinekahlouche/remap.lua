@@ -18,7 +18,7 @@ vim.api.nvim_set_keymap("n", "t", "i", { noremap = true }) -- (t)ype           r
 -- vim.api.nvim_set_keymap("n", "k", "N", { noremap = true })          -- previous match   replaces (N) prev
 
 -- Visual Colemak
-vim.api.nvim_set_keymap("v", "n", "h", { noremap = true })    -- move Left
-vim.api.nvim_set_keymap("v", "e", "j", { noremap = true })    -- move Down
-vim.api.nvim_set_keymap("v", "I", "k", { noremap = true })    -- move Up
-vim.api.nvim_set_keymap("v", "o", "l", { noremap = true })    -- move Right - shifted to fix [v]isual[i]n[...]
+vim.api.nvim_set_keymap("v", "n", "h", { noremap = true }) -- move Left
+vim.api.nvim_set_keymap("v", "e", "j", { noremap = true }) -- move Down
+vim.api.nvim_set_keymap("v", "I", "k", { noremap = true }) -- move Up
+vim.api.nvim_set_keymap("v", "o", "l", { noremap = true }) -- move Right - shifted to fix [v]isual[i]n[...]
