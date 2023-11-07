@@ -11,6 +11,3 @@ vim.api.nvim_set_keymap("n", "<M-Left>", "b", { noremap = true })
 vim.api.nvim_set_keymap("n", "<M-Right>", "w", { noremap = true })
 vim.api.nvim_set_keymap("v", "<M-Left>", "b", { noremap = true })
 vim.api.nvim_set_keymap("v", "<M-Right>", "w", { noremap = true })
-
--- vim.api.nvim_set_keymap("n", "<T-Left>", "0", { noremap = true })
--- vim.api.nvim_set_keymap("n", "<T-Right>", "$", { noremap = true })
