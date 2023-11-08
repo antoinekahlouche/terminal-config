@@ -23,7 +23,7 @@ end
 require("nvim-tree").setup({
     hijack_cursor = true,
     view = {
-        width = '20%',
+        width = 50,
         number = true,
         relativenumber = true,
     },
