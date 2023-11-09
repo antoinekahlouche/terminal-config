@@ -1,14 +1,14 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>q", ":bd<cr>")            -- Close current buffer
--- vim.keymap.set("n", "<leader>q", ":enew<bar>bd #<cr>")
-vim.keymap.set("n", "<leader>t", ":NvimTreeOpen<cr>")  -- Open Tree
-vim.keymap.set("n", "<leader>qq", ":qa<cr>")           -- Close Nvim
-vim.keymap.set("n", "<leader><tab>", ":bprevious<cr>") -- Previous buffer
+vim.keymap.set("n", "<LEADER>q", ":bd<CR>")            -- Close current buffer
+vim.keymap.set("n", "<LEADER>t", ":NvimTreeOpen<CR>")  -- Open Tree
+vim.keymap.set("n", "<LEADER>qq", ":qa<CR>")           -- Close Nvim
+vim.keymap.set("n", "<LEADER><TAB>", ":bprevious<CR>") -- Previous buffer
 
-vim.keymap.set("n", "<leader><leader>", ":lua vim.lsp.buf.format()<cr>")
+vim.keymap.set("n", "<LEADER>s", ":lua vim.lsp.buf.format()<CR>")
 
-vim.api.nvim_set_keymap("n", "<M-Left>", "b", { noremap = true })
-vim.api.nvim_set_keymap("n", "<M-Right>", "w", { noremap = true })
-vim.api.nvim_set_keymap("v", "<M-Left>", "b", { noremap = true })
-vim.api.nvim_set_keymap("v", "<M-Right>", "w", { noremap = true })
+vim.api.nvim_set_keymap("n", "<M-LEFT>", "b", { noremap = true })
+vim.api.nvim_set_keymap("n", "<M-RIGHT>", "w", { noremap = true })
+vim.api.nvim_set_keymap("v", "<M-LEFT>", "b", { noremap = true })
+vim.api.nvim_set_keymap("v", "<M-RIGHT>", "w", { noremap = true })
+
