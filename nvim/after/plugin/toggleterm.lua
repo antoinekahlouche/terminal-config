@@ -1,5 +1,5 @@
 require("toggleterm").setup({
-    open_mapping = "<LEADER><BS>",
+    open_mapping = "†", -- <Opt-t> on MacOS
     hide_numbers = true,
     start_in_insert = true,
     direction = "float",
