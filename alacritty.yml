@@ -1,0 +1,74 @@
+# https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd
+
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 10
+    y: 10
+  dynamic_padding: true
+  decorations: none
+  startup_mode: Maximized
+  title: Alacritty
+
+scrolling:
+  history: 5000
+
+font:
+  normal:
+    family: JetBrainsMono Nerd Font Mono
+    style: Regular
+  bold:
+    family: JetBrainsMono Nerd Font Mono
+    style: Bold
+  italic:
+    family: JetBrainsMono Nerd Font Mono
+    style: Italic
+  bold_italic:
+    family: JetBrainsMono Nerd Font Mono
+    style: Bold Italic
+  size: 16.0
+  offset:
+    x: 0
+    y: 0
+  # use_thin_strokes: true
+
+colors:
+  primary:
+    background: '0x282c33'
+    foreground: '0xabb2bf'
+    bright_foreground: '0xe6efff'
+  normal:
+    black:   '0x282c33'
+    red:     '0xe06b74'
+    green:   '0x98c379'
+    yellow:  '0xe5c07a'
+    blue:    '0x62aeef'
+    magenta: '0xc678dd'
+    cyan:    '0x55b6c2'
+    white:   '0xabb2bf'
+  bright:
+    black:   '0x282c33'
+    red:     '0xe06b74'
+    green:   '0x98c379'
+    yellow:  '0xe5c07a'
+    blue:    '0x62aeef'
+    magenta: '0xc678dd'
+    cyan:    '0x55b6c2'
+    white:   '0xabb2bf'
+  dim:
+    black:   '0x1e2127'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0x828791'
+
+live_config_reload: true
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: true
