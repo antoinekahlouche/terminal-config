@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+vim.keymap.set({ 'n', 'v' }, '<SPACE>', '<Nop>', { silent = true })
+
 vim.keymap.set("n", "<LEADER>q", ":bd<CR>")            -- Close current buffer
 vim.keymap.set("n", "<LEADER>t", ":NvimTreeOpen<CR>")  -- Open Tree
 vim.keymap.set("n", "<LEADER>qq", ":qa<CR>")           -- Close Nvim

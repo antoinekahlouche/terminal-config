@@ -7,13 +7,8 @@ window:
   padding:
     x: 10
     y: 10
-  dynamic_padding: true
-  decorations: none
+  decorations: Buttonless
   startup_mode: Maximized
-  title: Alacritty
-
-scrolling:
-  history: 5000
 
 font:
   normal:
@@ -29,10 +24,6 @@ font:
     family: JetBrainsMono Nerd Font Mono
     style: Bold Italic
   size: 16.0
-  offset:
-    x: 0
-    y: 0
-  # use_thin_strokes: true
 
 colors:
   primary:
@@ -67,8 +58,5 @@ colors:
     cyan:    '0x56b6c2'
     white:   '0x828791'
 
-live_config_reload: true
-
 selection:
-  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: true

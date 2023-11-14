@@ -11,7 +11,7 @@ require('telescope').setup({
         mappings = {
             i = {
                 ["<ESC>"] = actions.close,
-                ["∂"] = actions.delete_buffer,
+                ["∂"] = actions.delete_buffer, -- <Opt-d> on MacOS
             },
         },
     },
