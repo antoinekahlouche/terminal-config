@@ -1,4 +1,4 @@
--- vim.opt.guicursor = ""
+vim.opt.guicursor = "n-v-c-i:block"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -22,7 +22,7 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
@@ -33,3 +33,8 @@ vim.opt.colorcolumn = "80"
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+vim.o.clipboard = 'unnamedplus'
+
+-- Assign html type to htmldjango for askama templates
+vim.filetype.add({ extension = { html = 'html' } })
