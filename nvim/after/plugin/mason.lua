@@ -1,7 +1,1 @@
-require("mason").setup({
-    ui = {
-        keymaps = {
-            install_package = "a",
-        }
-    }
-})
+require("mason").setup()
