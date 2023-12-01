@@ -10,7 +10,7 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -27,8 +27,8 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
-
-vim.opt.colorcolumn = "80"
+vim.opt.textwidth = 110
+-- vim.opt.colorcolumn = "110"
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
@@ -36,5 +36,10 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.o.clipboard = 'unnamedplus'
 
--- Assign html type to htmldjango for askama templates
-vim.filetype.add({ extension = { html = 'html' } })
+-- auto-reload files when modified externally
+-- https://unix.stackexchange.com/a/383044
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+    command = "if mode() != 'c' | checktime | endif",
+    pattern = { "*" },
+})

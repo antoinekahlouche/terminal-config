@@ -21,10 +21,15 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux)
+plugins=(
+    git
+    tmux
+    zsh-autosuggestions
+)
 
 ZSH_TMUX_AUTOSTART="true"
-ZSH_TMUX_DEFAULT_SESSION_NAME="MAIN"
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -36,3 +41,12 @@ fpath=($fpath "/Users/antoinekahlouche/.zfunctions")
 
 # Aliases
 alias vi="nvim"
+alias ls="ls --color -l -h"
+alias c="clear"
+alias q="tksv"
+
+# Go path
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go/
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
