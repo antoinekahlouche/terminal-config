@@ -6,10 +6,6 @@ return require('packer').startup(function(use)
 
     use 'navarasu/onedark.nvim'
 
-    use 'nvim-tree/nvim-web-devicons'
-
-    use 'nvim-tree/nvim-tree.lua'
-
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -21,7 +17,13 @@ return require('packer').startup(function(use)
     }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
+    use {
+        "nvim-telescope/telescope-file-browser.nvim",
+        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    }
+
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use { 'nvim-treesitter/playground' }
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -38,7 +40,19 @@ return require('packer').startup(function(use)
         }
     }
 
-    use "Pocco81/auto-save.nvim"
+    use 'Pocco81/auto-save.nvim'
 
-    use { 'numToStr/Comment.nvim' }
+    use 'numToStr/Comment.nvim'
+
+    -- use 'rust-sailfish/sailfish'
+
+    use 'mbbill/undotree'
+
+    use { "shortcuts/no-neck-pain.nvim", tag = "*" }
+
+     use {
+        'laytan/tailwind-sorter.nvim',
+        requires = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
+        run = 'cd formatter && npm i && npm run build',
+    }
 end)
