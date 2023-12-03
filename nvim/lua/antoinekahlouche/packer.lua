@@ -44,15 +44,19 @@ return require('packer').startup(function(use)
 
     use 'numToStr/Comment.nvim'
 
-    -- use 'rust-sailfish/sailfish'
-
     use 'mbbill/undotree'
 
-    use { "shortcuts/no-neck-pain.nvim", tag = "*" }
-
-     use {
+    use {
         'laytan/tailwind-sorter.nvim',
         requires = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
         run = 'cd formatter && npm i && npm run build',
     }
+
+    use({
+        "kdheepak/lazygit.nvim",
+        -- optional for floating window border decoration
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+    })
 end)
