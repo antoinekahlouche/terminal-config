@@ -29,3 +29,6 @@ vim.keymap.set('n', '<LEADER>b', builtin.buffers, {})
 
 -- UndoTree
 vim.keymap.set('n', 'U', ":UndotreeToggle<CR>")
+
+-- Lazygit
+vim.api.nvim_create_user_command('Git', ':LazyGit', {})
