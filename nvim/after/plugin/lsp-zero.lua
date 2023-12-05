@@ -10,16 +10,48 @@ end)
 
 vim.filetype.add({
     extension = {
-        postcss = 'css',
-        stpl = 'html',
+        -- postcss = 'css',
         templ = 'templ',
     }
 })
 
-local lspconfig = require('lspconfig')
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+local lspconfig = require 'lspconfig'
+
+-- html
+require 'lspconfig'.html.setup {
+    capabilities = capabilities,
+}
+
+-- scss/css/ls
+require 'lspconfig'.cssls.setup {
+    capabilities = capabilities,
+    --     settings = {
+    --         css = {
+    --             lint = {
+    --                 unknownAtRules = 'ignore',
+    --             },
+    --         },
+    --     }
+}
+
+-- js/typescript
+require 'lspconfig'.tsserver.setup {
+    capabilities = capabilities,
+    filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
+}
+
+-- lua
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+
+-- htmx
 lspconfig.htmx.setup {}
+
+-- go.templ
 lspconfig.templ.setup {}
+
+-- tailwindcss
 lspconfig.tailwindcss.setup {
     filetypes = {
         "templ", "astro", "html", "markdown", "mdx", "css", "postcss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte"
@@ -30,41 +62,6 @@ lspconfig.tailwindcss.setup {
         }
     }
 }
--- lspconfig.cssls.setup({
---     settings = {
---         css = {
---             lint = {
---                 unknownAtRules = 'ignore',
---             },
---         },
---     }
--- })
--- lspconfig.rust_analyzer.setup {
---     filetypes = { "rust", "html" }
--- }
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-require 'lspconfig'.html.setup {
-    capabilities = capabilities,
-}
 
 lsp.setup()
-
-local cmp = require('cmp')
-
-cmp.setup({
-    sources = {
-        { name = 'nvim_lsp' }
-    },
-    preselect = 'item',
-    completion = {
-        completeopt = 'menu,menuone,noinsert'
-    },
-    mapping = {
-        -- `Enter` key to confirm completion
-        ['<Cr>'] = cmp.mapping.confirm({ select = false }),
-        -- `Escape` key to abort completion
-        ['<Esc>'] = cmp.mapping.abort(),
-    }
-})

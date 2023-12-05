@@ -4,7 +4,7 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 require('telescope').load_extension('fzf')
 require('telescope').setup({
     defaults = {
-        file_ignore_patterns = { "node_modules", "target" },
+        file_ignore_patterns = { "node_modules", "target", "%_templ.go" },
         mappings = {
             i = {
                 ["<ESC>"] = actions.close,

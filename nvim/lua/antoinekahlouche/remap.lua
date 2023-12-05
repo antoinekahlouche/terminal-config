@@ -5,9 +5,6 @@ vim.keymap.set("n", "<LEADER>qq", ":bd<CR>")           -- Close current buffer
 vim.keymap.set("n", "<LEADER>qa", ":qa<CR>")           -- Close Nvim
 vim.keymap.set("n", "<LEADER><TAB>", ":bprevious<CR>") -- Previous buffer
 
--- Change panel
-vim.api.nvim_set_keymap("n", "<LEADER>w", "<C-w>", { noremap = true })
-
 -- Kahboard
 vim.api.nvim_set_keymap("n", "<M-LEFT>", "b", { noremap = true })
 vim.api.nvim_set_keymap("n", "<M-RIGHT>", "w", { noremap = true })
