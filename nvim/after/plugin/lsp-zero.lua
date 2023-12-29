@@ -27,13 +27,13 @@ require 'lspconfig'.html.setup {
 -- scss/css/ls
 require 'lspconfig'.cssls.setup {
     capabilities = capabilities,
-    --     settings = {
-    --         css = {
-    --             lint = {
-    --                 unknownAtRules = 'ignore',
-    --             },
-    --         },
-    --     }
+    settings = {
+        css = {
+            lint = {
+                unknownAtRules = 'ignore',
+            },
+        },
+    }
 }
 
 -- js/typescript

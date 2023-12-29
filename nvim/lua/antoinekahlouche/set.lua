@@ -8,6 +8,14 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+-- Keep tab for Makefile
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "make",
+    callback = function()
+        vim.opt.expandtab = false
+    end,
+})
+
 vim.opt.smartindent = true
 
 vim.opt.wrap = true

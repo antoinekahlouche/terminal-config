@@ -41,7 +41,7 @@ fpath=($fpath "/Users/antoinekahlouche/.zfunctions")
 
 # Aliases
 alias vi="nvim"
-alias ls="ls --color -l -h"
+alias ls="ls --color -alh"
 alias c="clear"
 alias q="tksv"
 
