@@ -12,8 +12,9 @@ vim.api.nvim_set_keymap("v", "<M-LEFT>", "b", { noremap = true })
 vim.api.nvim_set_keymap("v", "<M-RIGHT>", "w", { noremap = true })
 
 -- Tree
--- vim.keymap.set("n", "<LEADER>t", ":NvimTreeOpen<CR>") -- Open Tree
-vim.api.nvim_set_keymap("n", "<LEADER>t", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
+vim.keymap.set("n", "<LEADER>t", ":NvimTreeOpen<CR>")  -- Open Tree
+-- vim.keymap.set("n", "<LEADER>T", ":NvimTreeClose<CR>") -- Close Tree
+-- vim.api.nvim_set_keymap("n", "<LEADER>t", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
 
 -- Autosave
 -- vim.keymap.set("n", "<LEADER>ss", ":lua vim.lsp.buf.format()<CR>")
