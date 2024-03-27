@@ -14,6 +14,7 @@ local function my_on_attach(bufnr)
     vim.keymap.set('n', '<Esc>', api.tree.close, opts('Close'))
     vim.keymap.set('n', '<Right>', api.node.open.edit, opts('Edit'))
     vim.keymap.set('n', '<Left>', api.node.open.preview, opts('Preview'))
+    vim.keymap.set('n', '<LEADER><CR>', api.node.open.vertical, opts('Open: Vertical Split'))
 
     -- add your mappings
     -- vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))

@@ -63,13 +63,13 @@ selection:
 
 # cf. https://www.joshmedeski.com/posts/macos-keyboard-shortcuts-for-tmux/
 key_bindings:
-  - { key: E, mods: Command, chars: "\x02\"" } # split tmux window vertically
-  - { key: E, mods: Command|Shift, chars: "\x02%" } # split tmux window horizontally
+  # - { key: E, mods: Command, chars: "\x02\"" } # split tmux window vertically
+  # - { key: E, mods: Command|Shift, chars: "\x02%" } # split tmux window horizontally
   - { key: T, mods: Command, chars: "\x02c" } # create a new tmux window
-  - { key: N, mods: Command, chars: "\x02n" } # create a new tmux window
+  # - { key: N, mods: Command, chars: "\x02n" } # create a new tmux window
   - { key: W, mods: Command, chars: "\x02x" } # kill the current pane
   - { key: Tab, mods: Control, chars: "\x02n" } # switch to next tmux window
-  - { key: Tab, mods: Control|Shift, chars: "\x02p" } # switch to next tmux window
+  # - { key: Tab, mods: Control|Shift, chars: "\x02p" } # switch to next tmux window
   - { key: Comma, mods: Command, chars: "\x02," } # rename the current tmux window
   - { key: F1, chars: "\x021" } # select tmux window 1
   - { key: F2, chars: "\x022" } #                ... 2
