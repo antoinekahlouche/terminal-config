@@ -80,3 +80,4 @@ key_bindings:
   - { key: F7, chars: "\x027" } #                ... 7
   - { key: F8, chars: "\x028" } #                ... 8
   - { key: F9, chars: "\x029" } #                ... 9
+  # - { key: Space, mods: Control, chars: "\x00" } # Ctrl + Space

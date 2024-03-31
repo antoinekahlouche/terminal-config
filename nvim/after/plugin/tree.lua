@@ -1,3 +1,5 @@
+vim.keymap.set("n", "<LEADER>t", ":NvimTreeOpen<CR>")
+
 local function my_on_attach(bufnr)
     local api = require('nvim-tree.api')
 

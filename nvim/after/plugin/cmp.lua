@@ -1,17 +1,18 @@
 local cmp = require('cmp')
 
 cmp.setup({
+    enable = true,
     sources = {
         { name = 'nvim_lsp' }
     },
-    preselect = 'item',
+    preselect = cmp.PreselectMode.Items,
     completion = {
-        completeopt = 'menu,menuone,noinsert'
+        autocomplete = false,
+        completeopt = 'menu,menuone,noinsert',
     },
-    mapping = {
-        -- `Enter` key to confirm completion
-        ['<Cr>'] = cmp.mapping.confirm({ select = false }),
-        -- `Escape` key to abort completion
-        ['<Esc>'] = cmp.mapping.abort(),
-    }
+    mapping = cmp.mapping.preset.insert({
+        ['<C-SPACE>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        ['<ESC>'] = cmp.mapping.abort(),
+    }),
 })
