@@ -3,7 +3,8 @@ local cmp = require('cmp')
 cmp.setup({
     enable = true,
     sources = {
-        { name = 'nvim_lsp' }
+        { name = 'nvim_lsp' },
+        { name = 'path' }
     },
     preselect = cmp.PreselectMode.Items,
     completion = {
