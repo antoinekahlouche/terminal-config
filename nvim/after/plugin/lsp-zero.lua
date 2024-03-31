@@ -2,7 +2,7 @@ local lsp = require('lsp-zero').preset({})
 
 lsp.on_attach(function(client, bufnr)
     -- auto format on exit insert
-    vim.cmd [[autocmd InsertLeave <buffer> lua vim.lsp.buf.format()]]
+    -- vim.cmd [[autocmd InsertLeave <buffer> lua vim.lsp.buf.format()]]
     -- auto format on save
     -- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
     lsp.default_keymaps({ buffer = bufnr })
