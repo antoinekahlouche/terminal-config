@@ -16,27 +16,28 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.2',
-        requires = { { 'nvim-lua/plenary.nvim' } }
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.2',
+        requires = { 'nvim-lua/plenary.nvim' }
     }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'mbbill/undotree'
 
     -- LSP ------------------------------------------------
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use { 'nvim-treesitter/playground' }
+    -- use { 'nvim-treesitter/playground' }
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
         requires = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },             -- Required
-            { 'williamboman/mason.nvim' },           -- Optional
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+            -- LSP support
+            { 'neovim/nvim-lspconfig' },
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },                  -- Required
-            { 'hrsh7th/cmp-nvim-lsp' },              -- Required
-            { 'L3MON4D3/LuaSnip' },                  -- Required
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'L3MON4D3/LuaSnip' },
         }
     }
 
@@ -44,11 +45,11 @@ return require('packer').startup(function(use)
     use({
         "NeogitOrg/neogit",
         requires = {
-            "nvim-lua/plenary.nvim",         -- required
-            "sindrets/diffview.nvim",        -- optional - Diff integration
-            "nvim-telescope/telescope.nvim", -- optional
+            "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim",
+            "nvim-telescope/telescope.nvim",
         },
-        config = true
+        -- config = true
     })
 
     -- HELPER ---------------------------------------------
@@ -56,7 +57,10 @@ return require('packer').startup(function(use)
     use 'numToStr/Comment.nvim'
     use {
         'laytan/tailwind-sorter.nvim',
-        requires = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
+        requires = {
+            'nvim-treesitter/nvim-treesitter',
+            'nvim-lua/plenary.nvim'
+        },
         run = 'cd formatter && npm i && npm run build',
     }
     use({ "stevearc/conform.nvim" })
