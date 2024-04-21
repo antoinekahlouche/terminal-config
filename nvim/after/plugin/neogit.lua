@@ -1,9 +1,7 @@
-local neogit = require('neogit')
-
-vim.api.nvim_create_user_command("Git", ":Neogit kind=replace", {})
-
-neogit.setup({
+require('neogit').setup({
     integrations = {
         diffview = true,
     },
 })
+
+vim.api.nvim_create_user_command("Git", ":Neogit kind=replace", {})

@@ -1,21 +1,23 @@
-require("conform").setup({
-    formatters_by_ft = {
-        lua = { "stylua" },
-        -- Conform will run multiple formatters sequentially
-        go = { "goimports", "gofmt" },
-        -- Use a sub-list to run only the first available formatter
-        javascript = { { "prettierd", "prettier" } },
-    },
-    format_on_save = {
-        -- I recommend these options. See :help conform.format for details.
-        lsp_fallback = true,
-        timeout_ms = 500,
-    },
+local conform = require('conform')
+
+conform.setup({
+	formatters_by_ft = {
+		css = { "prettier" },
+		go = { "goimports", "gofmt" },
+		html = { "prettier" },
+		javascript = { "prettier" },
+		json = { "prettier" },
+		lua = { "stylua" },
+		markdown = { "prettier" },
+		typescript = { "prettier" },
+		yaml = { "prettier" },
+	},
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
-    callback = function(args)
-        require("conform").format({ bufnr = args.buf })
-    end,
-})
+vim.keymap.set({ "n", "v" }, "f", function()
+	conform.format({
+		lsp_fallback = true,
+		async = false,
+		timeout_ms = 500,
+	})
+end)

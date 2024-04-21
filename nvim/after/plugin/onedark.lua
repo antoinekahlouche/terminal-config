@@ -1,7 +1,10 @@
-require('onedark').setup {
+local onedark = require('onedark')
+
+onedark.setup {
     style = 'dark',
     colors = {
         bg_d = "#282c34",
     },
 }
-require('onedark').load()
+
+onedark.load()
