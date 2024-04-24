@@ -1,14 +1,15 @@
 #!/bin/bash
 
-# alacritty
+# Alacritty
 cp -f alacritty.yml ~/.config/alacritty/alacritty.yml
 
-# nvim
+# Nvim
 rm -rf ~/.config/nvim
 cp -Rf ./nvim/ ~/.config/nvim/
 
-# tmux
+# Tmux
 cp -f .tmux.conf ~/.tmux.conf
 
-# zsh
+# Zsh
 cp -f .zshrc ~/.zshrc
+
