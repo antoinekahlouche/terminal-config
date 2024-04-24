@@ -20,7 +20,7 @@ return {
 				completeopt = "menu,menuone,noinsert",
 			},
 			mapping = cmp.mapping.preset.insert({
-				["<C-SPACE>"] = cmp.mapping.complete(),
+				-- ["<C-SPACE>"] = cmp.mapping.complete(),
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
 				["<ESC>"] = cmp.mapping.abort(),
 			}),
