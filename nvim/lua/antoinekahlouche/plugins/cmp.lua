@@ -1,5 +1,10 @@
 return {
 	"hrsh7th/nvim-cmp",
+	dependencies = {
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-buffer",
+	},
 	config = function()
 		local cmp = require("cmp")
 
@@ -11,7 +16,7 @@ return {
 			},
 			preselect = cmp.PreselectMode.Items,
 			completion = {
-				autocomplete = false,
+				-- autocomplete = false,
 				completeopt = "menu,menuone,noinsert",
 			},
 			mapping = cmp.mapping.preset.insert({
