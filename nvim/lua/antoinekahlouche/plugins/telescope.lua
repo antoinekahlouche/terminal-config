@@ -14,7 +14,7 @@ return {
 		telescope.setup({
 			defaults = {
 				layout_strategy = "horizontal",
-				layout_config = { prompt_position = "top" },
+				-- layout_config = { prompt_position = "top" },
 				sorting_strategy = "ascending",
 				winblend = 0,
 				file_ignore_patterns = { "node_modules", "target", "%_templ.go", "go.sum", "package-lock.json" },
@@ -32,7 +32,7 @@ return {
 
 		vim.keymap.set("n", "<LEADER>f", builtin.find_files, {})
 		vim.keymap.set("n", "<LEADER>g", builtin.live_grep, {})
-		vim.keymap.set("n", "<LEADER>b", builtin.buffers, {})
+		-- vim.keymap.set("n", "<LEADER>b", builtin.buffers, {})
 		vim.keymap.set("n", "<LEADER>p", "<CMD>TodoTelescope<CR>", {})
 	end,
 }

@@ -14,8 +14,17 @@ return {
 			},
 		})
 
+		local toggle_opts = {
+			style = "minimal",
+			title = "",
+			border = "rounded",
+			title_pos = "center",
+			ui_width_ratio = 0.40,
+			bg = "#282c34",
+		}
+
 		vim.keymap.set("n", "<LEADER>w", function()
-			harpoon.ui:toggle_quick_menu(harpoon:list())
+			harpoon.ui:toggle_quick_menu(harpoon:list(), toggle_opts)
 		end)
 		vim.keymap.set("n", "<LEADER>a", function()
 			harpoon:list():add()
