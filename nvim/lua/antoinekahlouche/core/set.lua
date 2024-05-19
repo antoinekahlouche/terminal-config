@@ -36,8 +36,8 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
-vim.opt.textwidth = 80
-vim.opt.colorcolumn = "80"
+-- vim.opt.textwidth = 80
+-- vim.opt.colorcolumn = "80"
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1

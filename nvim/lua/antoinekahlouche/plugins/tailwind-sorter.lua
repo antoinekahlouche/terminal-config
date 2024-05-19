@@ -4,12 +4,12 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-lua/plenary.nvim",
 	},
-	run = "cd formatter && npm i && npm run build",
+	build = "cd formatter && npm ci && npm run build",
 	config = function()
 		local tailwindsorter = require("tailwind-sorter")
 
 		tailwindsorter.setup({
-			on_save_enabled = true,
+			on_save_enabled = false,
 			on_save_pattern = {
 				"*.html",
 				"*.js",
@@ -18,6 +18,12 @@ return {
 				"*.templ",
 			},
 			node_path = "node",
+		})
+
+		vim.api.nvim_create_autocmd("InsertLeave", {
+			callback = function()
+				tailwindsorter.sort()
+			end,
 		})
 	end,
 }

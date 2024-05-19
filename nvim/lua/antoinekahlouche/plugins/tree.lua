@@ -27,8 +27,8 @@ return {
 			hijack_cursor = true,
 			view = {
 				width = 50,
-				number = true,
-				relativenumber = true,
+				number = false,
+				relativenumber = false,
 			},
 			renderer = {
 				indent_width = 4,

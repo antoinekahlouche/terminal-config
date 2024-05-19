@@ -63,7 +63,10 @@ return {
 		lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 
 		-- htmx
-		lspconfig.htmx.setup({})
+		lspconfig.htmx.setup({
+			capabilities = capabilities,
+			filetypes = { "html", "templ" },
+		})
 
 		-- go.templ
 		lspconfig.templ.setup({})
