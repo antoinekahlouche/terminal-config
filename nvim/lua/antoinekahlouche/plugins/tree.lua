@@ -55,6 +55,6 @@ return {
 			on_attach = my_on_attach,
 		})
 
-		vim.keymap.set("n", "<LEADER>t", ":NvimTreeOpen<CR>")
+		-- vim.keymap.set("n", "<LEADER>t", ":NvimTreeOpen<CR>")
 	end,
 }
