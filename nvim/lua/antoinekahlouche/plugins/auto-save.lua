@@ -5,7 +5,9 @@ return {
 
 		autosave.setup({
 			condition = function(buf)
-				if vim.bo[buf].filetype == "harpoon" then
+				local filetype = vim.bo[buf].filetype
+				if filetype == "harpoon" then
+				    -- or filetype == "oil" then
 					return false
 				end
 			end,

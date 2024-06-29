@@ -12,6 +12,13 @@ return {
 		{ "L3MON4D3/LuaSnip" },
 	},
 	config = function()
+		vim.keymap.set("n", "k", function()
+			vim.diagnostic.open_float()
+		end)
+		vim.keymap.set("n", "K", function()
+			vim.lsp.buf.hover()
+		end)
+
 		local lsp = require("lsp-zero").preset({})
 
 		lsp.on_attach(function(_, bufnr)
@@ -32,6 +39,7 @@ return {
 		-- html
 		lspconfig.html.setup({
 			capabilities = capabilities,
+			filetypes = { "html", "templ" },
 		})
 
 		-- scss/css/ls
@@ -69,7 +77,9 @@ return {
 		})
 
 		-- go.templ
-		lspconfig.templ.setup({})
+		lspconfig.templ.setup({
+			capabilities = capabilities,
+		})
 
 		-- tailwindcss
 		lspconfig.tailwindcss.setup({

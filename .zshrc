@@ -40,7 +40,7 @@ export NVM_DIR="$HOME/.nvm"
 fpath=($fpath "/Users/antoinekahlouche/.zfunctions")
 
 # Aliases
-alias vi="nvim"
+alias vi="nvim -c ':Oil'"
 alias ls="ls --color -alh"
 alias c="clear"
 alias q="tksv"

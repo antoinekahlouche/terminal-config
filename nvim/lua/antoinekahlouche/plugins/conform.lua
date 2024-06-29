@@ -4,6 +4,7 @@ return {
 		local conform = require("conform")
 
 		conform.setup({
+			notify_on_error = false,
 			formatters_by_ft = {
 				css = { "prettier" },
 				go = { "goimports", "gofmt" },
@@ -12,6 +13,7 @@ return {
 				json = { "prettier" },
 				lua = { "stylua" },
 				markdown = { "prettier" },
+				-- sql = { "sql_formatter" },
 				templ = { "templ" },
 				typescript = { "prettier" },
 				yaml = { "prettier" },
@@ -27,7 +29,12 @@ return {
 		-- end)
 
 		vim.api.nvim_create_autocmd("InsertLeave", {
+			pattern = "*",
 			callback = function()
+				local filetype = vim.bo.filetype
+				if filetype == "harpoon" or filetype == "oil" then
+					return false
+				end
 				conform.format({
 					lsp_fallback = true,
 					async = false,

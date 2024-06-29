@@ -1,9 +1,9 @@
 return {
 	"williamboman/mason.nvim",
 	dependencies = {
-	    "williamboman/mason-lspconfig.nvim",
-	    "WhoIsSethDaniel/mason-tool-installer.nvim",
-	    "neovim/nvim-lspconfig",
+		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"neovim/nvim-lspconfig",
 	},
 	config = function()
 		local mason = require("mason")
@@ -26,6 +26,7 @@ return {
 				"emmet_ls",
 				"gopls",
 				"html",
+				"htmx",
 				"lua_ls",
 				"tailwindcss",
 				"tsserver",
@@ -37,6 +38,7 @@ return {
 				"eslint_d",
 				"goimports",
 				"prettier",
+				-- "sql_formatter",
 				"stylua",
 				"templ",
 			},
