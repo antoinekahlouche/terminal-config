@@ -29,7 +29,7 @@ return {
 				"lua_ls",
 				"tailwindcss",
 				"ts_ls",
-                "astro"
+				"astro",
 			},
 		})
 

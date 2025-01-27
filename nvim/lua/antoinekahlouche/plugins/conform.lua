@@ -6,6 +6,7 @@ return {
 		conform.setup({
 			notify_on_error = false,
 			formatters_by_ft = {
+				astro = { "prettier" },
 				css = { "prettier" },
 				html = { "prettier" },
 				javascript = { "prettier" },

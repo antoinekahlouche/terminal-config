@@ -14,6 +14,6 @@ return {
 			},
 		})
 
-		vim.api.nvim_create_user_command("Git", ":Neogit kind=replace", {})
+		vim.api.nvim_create_user_command("Git", ":Neogit", {})
 	end,
 }
