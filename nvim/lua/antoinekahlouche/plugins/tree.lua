@@ -17,7 +17,8 @@ return {
 
 			vim.keymap.set("n", "<Esc>", api.tree.close, opts("Close"))
 			vim.keymap.set("n", "<Right>", api.node.open.edit, opts("Edit"))
-			vim.keymap.set("n", "<Left>", api.node.open.preview, opts("Preview"))
+			vim.keymap.set("n", "<LeftRelease>", api.node.open.preview, opts("Preview"))
+            vim.keymap.set("n", "<Left>", api.node.open.preview, opts("Preview"))
 			vim.keymap.set("n", "<LEADER><CR>", api.node.open.vertical, opts("Open: Vertical Split"))
 		end
 
@@ -27,11 +28,11 @@ return {
 			hijack_cursor = true,
 			view = {
 				width = 50,
-				number = false,
-				relativenumber = false,
+				-- number = false,
+				relativenumber = true,
 			},
 			renderer = {
-				indent_width = 4,
+				indent_width = 2,
 				-- indent_markers = {
 				-- 	enable = true,
 				-- 	inline_arrows = true,
@@ -45,8 +46,8 @@ return {
 				-- },
 				icons = {
 					show = {
-						file = false,
-						folder = false,
+						file = true,
+						folder = true,
 						folder_arrow = false,
 						git = false,
 					},
@@ -55,6 +56,6 @@ return {
 			on_attach = my_on_attach,
 		})
 
-		-- vim.keymap.set("n", "<LEADER>t", ":NvimTreeOpen<CR>")
+		vim.keymap.set("n", "<LEADER>t", ":NvimTreeOpen<CR>")
 	end,
 }

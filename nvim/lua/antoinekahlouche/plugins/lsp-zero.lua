@@ -25,12 +25,6 @@ return {
 			lsp.default_keymaps({ buffer = bufnr })
 		end)
 
-		vim.filetype.add({
-			extension = {
-				templ = "templ",
-			},
-		})
-
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -39,7 +33,7 @@ return {
 		-- html
 		lspconfig.html.setup({
 			capabilities = capabilities,
-			filetypes = { "html", "templ" },
+			filetypes = { "html" },
 		})
 
 		-- scss/css/ls
@@ -55,7 +49,7 @@ return {
 		})
 
 		-- js/typescript
-		lspconfig.tsserver.setup({
+		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
 			filetypes = {
 				"javascript",
@@ -73,18 +67,12 @@ return {
 		-- htmx
 		lspconfig.htmx.setup({
 			capabilities = capabilities,
-			filetypes = { "html", "templ" },
-		})
-
-		-- go.templ
-		lspconfig.templ.setup({
-			capabilities = capabilities,
+			filetypes = { "html" },
 		})
 
 		-- tailwindcss
 		lspconfig.tailwindcss.setup({
 			filetypes = {
-				"templ",
 				"astro",
 				"html",
 				"markdown",
@@ -95,15 +83,13 @@ return {
 				"javascriptreact",
 				"typescript",
 				"typescriptreact",
-				"vue",
-				"svelte",
-			},
-			init_options = {
-				userLanguages = {
-					templ = "html",
-				},
 			},
 		})
+
+        -- astro --
+        lspconfig["astro"].setup({
+            filetypes = { "astro" },
+        })
 
 		lsp.setup()
 	end,

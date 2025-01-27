@@ -7,7 +7,6 @@ return {
 			condition = function(buf)
 				local filetype = vim.bo[buf].filetype
 				if filetype == "harpoon" then
-				    -- or filetype == "oil" then
 					return false
 				end
 			end,
