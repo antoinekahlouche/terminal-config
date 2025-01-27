@@ -15,7 +15,6 @@ return {
 				"*.js",
 				"*.ts",
 				"*.css",
-				"*.templ",
 			},
 			node_path = "node",
 		})

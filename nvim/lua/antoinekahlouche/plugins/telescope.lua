@@ -17,7 +17,7 @@ return {
 				-- layout_config = { prompt_position = "top" },
 				sorting_strategy = "ascending",
 				winblend = 0,
-				file_ignore_patterns = { "node_modules", "target", "%_templ.go", "go.sum", "package-lock.json" },
+				file_ignore_patterns = { "node_modules", "package-lock.json" },
 				mappings = {
 					i = {
 						["<ESC>"] = actions.close,

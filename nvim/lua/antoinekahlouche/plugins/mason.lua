@@ -24,23 +24,20 @@ return {
 			ensure_installed = {
 				"cssls",
 				"emmet_ls",
-				"gopls",
 				"html",
 				"htmx",
 				"lua_ls",
 				"tailwindcss",
-				"tsserver",
+				"ts_ls",
+                "astro"
 			},
 		})
 
 		mason_tool_installer.setup({
 			ensure_installed = {
 				"eslint_d",
-				"goimports",
 				"prettier",
-				-- "sql_formatter",
 				"stylua",
-				"templ",
 			},
 		})
 	end,

@@ -9,15 +9,14 @@ return {
 
 		configs.setup({
 			ensure_installed = {
+                "astro",
 				"css",
-				"go",
 				"html",
 				"javascript",
 				"json",
 				"lua",
 				"markdown",
 				"query",
-				"templ",
 				"typescript",
 				"vim",
 				"vimdoc",

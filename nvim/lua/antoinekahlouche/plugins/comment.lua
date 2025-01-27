@@ -6,6 +6,5 @@ return {
 		local ft = require("Comment.ft")
 
 		comment.setup()
-		ft({ "templ" }, ft.get("go"))
 	end,
 }
