@@ -20,12 +20,12 @@ return {
         -- set({"n", "x"}, "<leader>S", function() mc.matchSkipCursor(-1) end)
 
         -- Add and remove cursors with control + left click.
-        set("n", "<c-leftmouse>", mc.handleMouse)
-        set("n", "<c-leftdrag>", mc.handleMouseDrag)
-        set("n", "<c-leftrelease>", mc.handleMouseRelease)
+        set("n", "<M-LEFTMOUSE>", mc.handleMouse)
+        set("n", "<M-LEFTDRAG>", mc.handleMouseDrag)
+        set("n", "<M-LEFTRELEASE>", mc.handleMouseRelease)
 
         -- Disable and enable cursors.
-        set({"n", "x"}, "<c-q>", mc.toggleCursor)
+        set({"n", "x"}, "<C-q>", mc.toggleCursor)
 
         -- Mappings defined in a keymap layer only apply when there are
         -- multiple cursors. This lets you have overlapping mappings.
@@ -39,7 +39,7 @@ return {
             layerSet({"n", "x"}, "<leader>x", mc.deleteCursor)
 
             -- Enable and clear cursors using escape.
-            layerSet("n", "<esc>", function()
+            layerSet("n", "<ESC>", function()
                 if not mc.cursorsEnabled() then
                     mc.enableCursors()
                 else
