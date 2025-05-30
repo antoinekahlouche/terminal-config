@@ -30,12 +30,12 @@ return {
 			},
 			hijack_cursor = true,
 			view = {
-				width = 50,
+				width = 40,
 				-- number = false,
 				relativenumber = true,
 			},
 			renderer = {
-                add_trailing = false,
+				add_trailing = false,
 				root_folder_label = false,
 				indent_width = 3,
 				-- indent_markers = {
@@ -50,8 +50,8 @@ return {
 				-- 	},
 				-- },
 				icons = {
-                    show = {
-                        file = true,
+					show = {
+						file = true,
 						folder = true,
 						folder_arrow = true,
 						git = false,
