@@ -18,8 +18,9 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.opt.smartindent = true
+vim.opt.smarttab = true
 
-vim.opt.wrap = true
+vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false

@@ -18,13 +18,16 @@ return {
 			vim.keymap.set("n", "<Esc>", api.tree.close, opts("Close"))
 			vim.keymap.set("n", "<Right>", api.node.open.edit, opts("Edit"))
 			vim.keymap.set("n", "<LeftRelease>", api.node.open.preview, opts("Preview"))
-            vim.keymap.set("n", "<Left>", api.node.open.preview, opts("Preview"))
+			vim.keymap.set("n", "<Left>", api.node.open.preview, opts("Preview"))
 			vim.keymap.set("n", "<LEADER><CR>", api.node.open.vertical, opts("Open: Vertical Split"))
 		end
 
 		local nvimtree = require("nvim-tree")
 
 		nvimtree.setup({
+			filters = {
+				custom = { "node_modules", ".git" },
+			},
 			hijack_cursor = true,
 			view = {
 				width = 50,
@@ -32,7 +35,9 @@ return {
 				relativenumber = true,
 			},
 			renderer = {
-				indent_width = 2,
+                add_trailing = false,
+				root_folder_label = false,
+				indent_width = 3,
 				-- indent_markers = {
 				-- 	enable = true,
 				-- 	inline_arrows = true,
@@ -40,15 +45,15 @@ return {
 				-- 		corner = "┊",
 				-- 		edge = "┊",
 				-- 		item = "┊",
-				-- 		bottom = " ",
+				-- 		bottom = "┊",
 				-- 		none = "┊",
 				-- 	},
 				-- },
 				icons = {
-					show = {
-						file = true,
+                    show = {
+                        file = true,
 						folder = true,
-						folder_arrow = false,
+						folder_arrow = true,
 						git = false,
 					},
 				},

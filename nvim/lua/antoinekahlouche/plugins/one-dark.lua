@@ -13,15 +13,5 @@ return {
 		})
 
 		onedark.load()
-
-		-- vim.api.nvim_create_autocmd("FileType", {
-		-- 	pattern = "harpoon",
-		-- 	callback = function()
-		-- 		onedark.setup({
-		-- 			colors = {
-		-- 			},
-		-- 		})
-		-- 	end,
-		-- })
 	end,
 }
