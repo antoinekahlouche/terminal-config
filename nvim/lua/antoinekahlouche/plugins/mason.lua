@@ -17,6 +17,7 @@ return {
 					package_pending = "➜",
 					package_uninstalled = "✗",
 				},
+				border = "single",
 			},
 		})
 
@@ -25,12 +26,14 @@ return {
 				"cssls",
 				"emmet_ls",
 				"html",
-				"htmx",
+				"svelte",
 				"lua_ls",
 				"tailwindcss",
 				"ts_ls",
 				"astro",
 			},
+			-- auto-install configured servers (with lspconfig)
+			automatic_installation = true, -- not the same as ensure_installed
 		})
 
 		mason_tool_installer.setup({

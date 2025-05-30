@@ -2,6 +2,8 @@
 vim.g.mapleader = " "
 vim.keymap.set({ "n", "v" }, "<SPACE>", "<Nop>", { silent = true })
 vim.keymap.set("n", "q", ":bd<CR>") -- Close current buffer
+vim.keymap.set("n", "<LEADER><ENTER>", ":bprev<CR>")
+vim.keymap.set("n", "<LEADER><BACKSPACE>", ":bnext<CR>")
 vim.keymap.set("n", "<LEADER>q", ":qa<CR>") -- Close Nvim
 
 -- Kahboard

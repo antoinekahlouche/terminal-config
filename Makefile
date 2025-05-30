@@ -1,27 +1,19 @@
-clean:
+clean-nvim:
 	rm -rf ~/.local/share/nvim/
 	brew reinstall neovim
 
-tmux-kill:
-	tmux kill-session -t 0
-
-deploy-alacrity:
-	cp -f alacritty.yml ~/.config/alacritty/alacritty.yml
+deploy-ghosty:
+	cp -f ghosty.config ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
 deploy-nvim:
 	rm -rf ~/.config/nvim
 	cp -Rf ./nvim/ ~/.config/nvim/
 
-deploy-tmux:
-	cp -f .tmux.conf ~/.tmux.conf
-
 deploy-zsh:
 	cp -f .zshrc ~/.zshrc
-	# source ~/.zshrc
+	exec zsh
 
 deploy:
-	make deploy-alacrity
+	make deploy-ghosty
 	make deploy-nvim
-	make deploy-tmux
 	make deploy-zsh
-

@@ -4,23 +4,35 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-buffer",
+        "saadparwaiz1/cmp_luasnip",
 	},
 	config = function()
 		local cmp = require("cmp")
 
 		cmp.setup({
+            snippet = {
+                expand = function(args)
+                    require'luasnip'.lsp_expand(args.body)
+                end
+            },
+
 			enable = true,
+
 			sources = {
-				{ name = "nvim_lsp" },
 				{ name = "path" },
+				{ name = "luasnip" },
+				{ name = "nvim_lsp" },
 			},
+
 			preselect = cmp.PreselectMode.Items,
+
 			completion = {
 				-- autocomplete = false,
 				completeopt = "menu,menuone,noinsert",
 			},
+
 			mapping = cmp.mapping.preset.insert({
-				-- ["<C-SPACE>"] = cmp.mapping.complete(),
+				["<C-SPACE>"] = cmp.mapping.complete(),
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
 				["<ESC>"] = cmp.mapping.abort(),
 			}),

@@ -1,6 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.6",
+	tag = "0.1.8",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -32,7 +32,7 @@ return {
 
 		vim.keymap.set("n", "<LEADER>f", builtin.find_files, {})
 		vim.keymap.set("n", "<LEADER>g", builtin.live_grep, {})
-		-- vim.keymap.set("n", "<LEADER>b", builtin.buffers, {})
-		vim.keymap.set("n", "<LEADER>p", "<CMD>TodoTelescope<CR>", {})
+		vim.keymap.set("n", "<LEADER>b", builtin.buffers, {})
+		-- vim.keymap.set("n", "<LEADER>p", "<CMD>TodoTelescope<CR>", {})
 	end,
 }
