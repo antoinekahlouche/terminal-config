@@ -10,6 +10,10 @@ return {
 		local cmp = require("cmp")
 
 		cmp.setup({
+            formatting = {
+                fields = { cmp.ItemField.Abbr, cmp.ItemField.Kind },
+            },
+
             snippet = {
                 expand = function(args)
                     require'luasnip'.lsp_expand(args.body)
@@ -31,6 +35,11 @@ return {
 				completeopt = "menu,menuone,noinsert",
 			},
 
+            window = {
+                completion = { border = 'rounded' },
+                documentation = { border = 'rounded' },
+            },
+
 			mapping = cmp.mapping.preset.insert({
 				["<C-SPACE>"] = cmp.mapping.complete(),
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
@@ -39,3 +48,4 @@ return {
 		})
 	end,
 }
+
