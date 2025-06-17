@@ -26,7 +26,7 @@ return {
 
 		nvimtree.setup({
 			filters = {
-				custom = { "node_modules", ".git" },
+				-- custom = { "node_modules", ".git" },
 			},
 			hijack_cursor = true,
 			view = {
