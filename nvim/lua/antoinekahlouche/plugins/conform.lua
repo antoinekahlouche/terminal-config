@@ -6,18 +6,18 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				javascript = { "prettier", stop_after_first = true },
-				javascriptreact = { "prettier", stop_after_first = true },
-				typescriptreact = { "prettier", stop_after_first = true },
-				astro = { "prettier", stop_after_first = true },
-				css = { "prettier", stop_after_first = true },
-				html = { "prettier", stop_after_first = true },
-				jsonc = { "prettier", stop_after_first = true },
-				json = { "prettier", stop_after_first = true },
+				javascript = { "biome-check", stop_after_first = true },
+				javascriptreact = { "biome-check", stop_after_first = true },
+				typescriptreact = { "biome-check", stop_after_first = true },
+				astro = { "biome-check", stop_after_first = true },
+				css = { "biome-check", stop_after_first = true },
+				html = { "biome-check", stop_after_first = true },
+				jsonc = { "biome-check", stop_after_first = true },
+				json = { "biome-check", stop_after_first = true },
 				lua = { "stylua", stop_after_first = true },
-				markdown = { "prettier", stop_after_first = true },
-				typescript = { "prettier", stop_after_first = true },
-				yaml = { "prettier", stop_after_first = true },
+				markdown = { "biome-check", stop_after_first = true },
+				typescript = { "biome-check", stop_after_first = true },
+				yaml = { "biome-check", stop_after_first = true },
 			},
 		})
 
