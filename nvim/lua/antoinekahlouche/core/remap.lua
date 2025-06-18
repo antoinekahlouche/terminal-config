@@ -5,6 +5,8 @@ vim.keymap.set("n", "q", ":bd<CR>") -- Close current buffer
 vim.keymap.set("n", "<LEADER><ENTER>", ":bprev<CR>")
 vim.keymap.set("n", "<LEADER><BACKSPACE>", ":bnext<CR>")
 vim.keymap.set("n", "<LEADER>q", ":qa<CR>") -- Close Nvim
+vim.keymap.set({ "n", "v" }, "<A-UP>", ":m -2<CR>", { silent = true })
+vim.keymap.set({ "n", "v" }, "<A-DOWN>", ":m +1<CR>", { silent = true })
 
 -- Kahboard
 vim.keymap.set("n", "<M-LEFT>", "b")
