@@ -3,10 +3,14 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 
-		lspconfig.eslint.setup({})
+		-- lspconfig.eslint.setup({})
 		lspconfig.ts_ls.setup({})
 		lspconfig.lua_ls.setup({})
 		-- lspconfig.astro.setup({})
+
+		vim.diagnostic.config({
+			float = { border = "single" },
+		})
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function()
