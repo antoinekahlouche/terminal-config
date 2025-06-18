@@ -12,12 +12,14 @@ return {
 
 		mason.setup({
 			ui = {
+				width = 1,
+				height = 1,
 				icons = {
 					package_installed = "✓",
 					package_pending = "➜",
 					package_uninstalled = "✗",
 				},
-				border = "single",
+				border = nil,
 			},
 		})
 
@@ -41,6 +43,7 @@ return {
 				"eslint_d",
 				"prettier",
 				"stylua",
+				"biome",
 			},
 		})
 	end,

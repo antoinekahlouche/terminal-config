@@ -14,15 +14,14 @@ return {
 		telescope.setup({
 			defaults = {
 				layout_strategy = "horizontal",
-				-- layout_config = { prompt_position = "top" },
-				sorting_strategy = "ascending",
+				-- sorting_strategy = "ascending",
 				winblend = 0,
 				file_ignore_patterns = { "node_modules", "package-lock.json" },
 				mappings = {
 					i = {
 						["<ESC>"] = actions.close,
 						["∂"] = actions.delete_buffer, -- <Opt-d> on MacOS
-						["<LEADER><CR>"] = actions.select_vertical,
+						-- ["<LEADER><CR>"] = actions.select_vertical,
 					},
 				},
 			},
