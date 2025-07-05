@@ -1,2 +1,3 @@
-require("antoinekahlouche.core")
-require("antoinekahlouche.lazy")
+require("default.core")
+require("default.lazy")
+
