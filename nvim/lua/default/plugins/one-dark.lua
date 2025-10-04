@@ -7,7 +7,7 @@ return {
 		onedark.setup({
 			style = "dark",
 			colors = {
-				bg_d = "#282c34",
+				-- bg_d = "#282c34",
 				-- bg1 = "#282c34",
 			},
 		})
