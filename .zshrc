@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="gnzh" #"agnoster"
 
 # Hide the user in prompt
 DEFAULT_USER="antoinekahlouche"
@@ -13,7 +13,7 @@ prompt_context () { }
 precmd() { print "" }
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="false"
 
 
 # Which plugins would you like to load?

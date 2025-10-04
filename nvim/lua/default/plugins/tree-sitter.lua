@@ -1,14 +1,14 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-    lazy = false,
+	lazy = false,
 	config = function()
 		local configs = require("nvim-treesitter.configs")
 
 		configs.setup({
 			ensure_installed = {
 				"astro",
-                "svelte",
+				"svelte",
 				"css",
 				"html",
 				"javascript",
@@ -26,9 +26,10 @@ return {
 			highlight = {
 				enable = true,
 			},
-            indent = { 
-                enable = true 
-            },  
+			indent = {
+				enable = true,
+			},
 		})
 	end,
 }
+
