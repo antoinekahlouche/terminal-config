@@ -1,21 +1,32 @@
 # MacOS conf
 
-## Disable automatic back up of iOS devices
+**Disable automatic back up of iOS devices**
 
 ```bash
 defaults write com.apple.AMPDevicesAgent.plist AutomaticDeviceBackupsDisabled -bool true
 ```
 
-## Speedup desktop transition
+**Speedup desktop transition**
 
 ...
 
-## Shortcuts
+**Disable sleep on external disks**
 
-### Settings
+```bash
+sudo pmset -a disksleep 0
 
-Disable `Ctrl + Space`
+# verify
+pmset -g
+```
 
-### Raycast
+**Disable MacOS sleep**
 
-...
+```bash
+sudo pmset sleep 0
+```
+
+**Disable Spotlight on external HDD/SSD**
+
+```bash
+sudo mdutil -a off
+```
