@@ -16,6 +16,7 @@ return {
 			vim.keymap.del("n", "e", { buffer = bufnr })
 
 			vim.keymap.set("n", "<Esc>", api.tree.close, opts("Close"))
+			vim.keymap.set("n", "l", api.node.open.edit, opts("Edit"))
 			vim.keymap.set("n", "<Right>", api.node.open.edit, opts("Edit"))
 			vim.keymap.set("n", "<LeftRelease>", api.node.open.preview, opts("Preview"))
 			-- vim.keymap.set("n", "<LEADER><CR>", api.node.open.vertical, opts("Open: Vertical Split"))
