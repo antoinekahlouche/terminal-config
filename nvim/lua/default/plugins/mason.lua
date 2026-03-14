@@ -29,6 +29,7 @@ return {
 				"emmet_ls",
 				"html",
 				"svelte",
+				"ltex",
 				"lua_ls",
 				"tailwindcss",
 				"ts_ls",
