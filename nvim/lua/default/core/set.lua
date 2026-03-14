@@ -1,15 +1,49 @@
-vim.opt.guicursor = "n-v-c-i:ver25"
-
+-- UI
+vim.opt.guicursor = "n-v-c-i:block"
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.wrap = true
+vim.opt.termguicolors = true
+vim.opt.scrolloff = 10
+vim.opt.signcolumn = "yes"
+vim.opt.colorcolumn = "80"
 
+-- Searching
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Editing behavior
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.smarttab = true
+vim.opt.backspace = "indent,eol,start"
 
--- Keep tab for Makefile
+-- File handling
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+vim.opt.autoread = true
+vim.opt.updatetime = 50
+
+-- Window behavior
+vim.opt.splitright = true
+
+-- Misc
+vim.opt.clipboard = "unnamedplus"
+vim.opt.isfname:append("@-@")
+
+-- Disable netrw early so file explorer plugins can take over.
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- Keep literal tabs in Makefiles.
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "make",
 	callback = function()
@@ -17,47 +51,8 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-vim.opt.smartindent = true
-vim.opt.smarttab = true
-
-vim.opt.wrap = false
-
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
-
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-
-vim.opt.termguicolors = true
-
-vim.opt.scrolloff = 10
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
-
-vim.opt.updatetime = 50
--- vim.opt.textwidth = 80
-vim.opt.colorcolumn = "80"
-
--- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
-vim.opt.clipboard = "unnamedplus"
-
--- auto-reload files when modified externally
--- https://unix.stackexchange.com/a/383044
-vim.opt.autoread = true
+-- Reload buffers when files change outside Neovim.
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+	pattern = "*",
 	command = "if mode() != 'c' | checktime | endif",
-	pattern = { "*" },
 })
-
--- Search
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
-vim.opt.backspace = "indent,eol,start"
-
-vim.opt.splitright = true

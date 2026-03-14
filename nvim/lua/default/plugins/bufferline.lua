@@ -27,8 +27,8 @@ return {
 		local map = vim.api.nvim_set_keymap
 		local opts = { noremap = true, silent = true }
 
-		map("n", "<LEADER><LEFT>", "<Cmd>BufferLineCyclePrev<CR>", opts)
-		map("n", "<LEADER><RIGHT>", "<Cmd>BufferLineCycleNext<CR>", opts)
+		-- map("n", "<LEADER><LEFT>", "<Cmd>BufferLineCyclePrev<CR>", opts)
+		-- map("n", "<LEADER><RIGHT>", "<Cmd>BufferLineCycleNext<CR>", opts)
 
 		map("n", "<A-1>", "<Cmd>BufferLineGoToBuffer 1<CR>", opts)
 		map("n", "<A-2>", "<Cmd>BufferLineGoToBuffer 2<CR>", opts)
@@ -41,6 +41,6 @@ return {
 		map("n", "<A-9>", "<Cmd>BufferLineGoToBuffer 9<CR>", opts)
 
 		map("n", "q", "<Cmd>Bdelete<CR>", opts)
-		-- map("n", "qo", "<Cmd>BufferLineCloseOthers<CR>", opts)
+		map("n", "qo", "<Cmd>BufferLineCloseOthers<CR>", opts)
 	end,
 }
