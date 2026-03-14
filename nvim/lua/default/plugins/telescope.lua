@@ -20,7 +20,7 @@ return {
 				mappings = {
 					i = {
 						["<ESC>"] = actions.close,
-						["∂"] = actions.delete_buffer, -- <Opt-d> on MacOS
+						-- ["∂"] = actions.delete_buffer, -- <Opt-d> on MacOS
 						-- ["<LEADER><CR>"] = actions.select_vertical,
 					},
 				},
