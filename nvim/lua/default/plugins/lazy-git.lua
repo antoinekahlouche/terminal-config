@@ -10,7 +10,7 @@ return {
 		"LazyGitFilter",
 		"LazyGitFilterCurrentFile",
 	},
-	keys = {
-		{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-	},
+	init = function()
+		vim.cmd([[cnoreabbrev <expr> git getcmdtype() == ':' && getcmdline() ==# 'git' ? 'LazyGit' : 'git']])
+	end,
 }

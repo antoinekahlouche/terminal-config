@@ -6,7 +6,7 @@
 defaults write com.apple.AMPDevicesAgent.plist AutomaticDeviceBackupsDisabled -bool true
 ```
 
-**Speedup desktop transition**
+**Speed-up desktop transition**
 
 ...
 
@@ -19,7 +19,7 @@ sudo pmset -a disksleep 0
 pmset -g
 ```
 
-**Disable MacOS sleep**
+**Disable macOS sleep**
 
 ```bash
 sudo pmset sleep 0
