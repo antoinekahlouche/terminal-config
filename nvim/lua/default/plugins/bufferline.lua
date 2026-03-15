@@ -41,7 +41,7 @@ return {
 		map("n", "<A-9>", "<Cmd>BufferLineGoToBuffer 9<CR>", opts)
 		map("n", "<A-0>", "<Cmd>BufferLineGoToBuffer 10<CR>", opts)
 
-		map("n", "q", "<Cmd>Bdelete<CR>", opts)
+		map("n", "q", "<Cmd>!Bdelete<CR>", opts)
 		-- map("n", "qo", "<Cmd>BufferLineCloseOthers<CR>", opts)
 	end,
 }
