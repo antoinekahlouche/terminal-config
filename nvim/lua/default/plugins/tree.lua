@@ -4,6 +4,16 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
+		local function sync_tree_highlights()
+			vim.api.nvim_set_hl(0, "NvimTreeFolderName", { link = "NvimTreeFileName" })
+		end
+
+		sync_tree_highlights()
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			group = vim.api.nvim_create_augroup("nvim-tree-highlights", { clear = true }),
+			callback = sync_tree_highlights,
+		})
+
 		local function my_on_attach(bufnr)
 			local api = require("nvim-tree.api")
 
@@ -25,8 +35,12 @@ return {
 		local nvimtree = require("nvim-tree")
 
 		nvimtree.setup({
+			git = {
+				ignore = false,
+			},
 			filters = {
-				-- custom = { "node_modules", ".git" },
+				git_ignored = false,
+				custom = { ".DS_Store" },
 			},
 			hijack_cursor = true,
 			view = {
@@ -36,19 +50,10 @@ return {
 			},
 			renderer = {
 				add_trailing = false,
+				special_files = {},
 				root_folder_label = false,
 				indent_width = 3,
-				-- indent_markers = {
-				-- 	enable = true,
-				-- 	inline_arrows = true,
-				-- 	icons = {
-				-- 		corner = "┊",
-				-- 		edge = "┊",
-				-- 		item = "┊",
-				-- 		bottom = "┊",
-				-- 		none = "┊",
-				-- 	},
-				-- },
+				highlight_git = true,
 				icons = {
 					show = {
 						file = true,
