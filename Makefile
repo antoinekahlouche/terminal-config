@@ -14,8 +14,8 @@ deploy-nvim:
 
 deploy-skills:
 	mkdir -p ~/.codex/skills ~/.claude/skills
-	cp -Rf ./skills/. ~/.codex/skills/
-	cp -Rf ./skills/. ~/.claude/skills/
+	rsync -a --delete ./skills/ ~/.codex/skills/
+	rsync -a --delete ./skills/ ~/.claude/skills/
 
 deploy-zsh:
 	cp -f .zshrc ~/.zshrc
