@@ -1,0 +1,1 @@
+{date format="hh:mm"}

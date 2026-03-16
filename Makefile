@@ -1,3 +1,6 @@
+generate-snippets:
+	bun run ./generate-snippets.ts
+
 clean-nvim:
 	rm -rf ~/.local/share/nvim/
 	brew reinstall neovim
@@ -19,6 +22,7 @@ deploy-zsh:
 	exec zsh
 
 deploy:
+	make generate-snippets
 	make deploy-ghosty
 	make deploy-skills
 	make deploy-nvim
