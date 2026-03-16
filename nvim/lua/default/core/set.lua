@@ -24,6 +24,7 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.smarttab = true
 vim.opt.backspace = "indent,eol,start"
+vim.opt.whichwrap:append("<,>,[,],h,l")
 
 -- File handling
 vim.opt.swapfile = false
