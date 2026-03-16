@@ -24,6 +24,14 @@ return {
 
 		vim.diagnostic.config({
 			float = { border = "single" },
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "󰅙",
+					[vim.diagnostic.severity.WARN] = "",
+					[vim.diagnostic.severity.INFO] = "󰋼",
+					[vim.diagnostic.severity.HINT] = "󰌵",
+				},
+			},
 		})
 
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -71,11 +79,5 @@ return {
 			end,
 		})
 
-		local symbols = { Error = "󰅙", Info = "󰋼", Hint = "󰌵", Warn = "" }
-
-		for name, icon in pairs(symbols) do
-			local hl = "DiagnosticSign" .. name
-			vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
-		end
 	end,
 }
