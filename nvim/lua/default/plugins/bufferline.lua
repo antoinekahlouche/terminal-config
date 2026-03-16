@@ -8,19 +8,52 @@ return {
 	config = function()
 		vim.opt.termguicolors = true
 		local bufferline = require("bufferline")
+		local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
+		local win_separator = vim.api.nvim_get_hl(0, { name = "WinSeparator" })
+		local bg = normal.bg
+		local border = win_separator.fg or normal.fg
+		local base = {
+			bg = bg,
+			underline = true,
+			sp = border,
+		}
+
+		local function extend(opts)
+			return vim.tbl_extend("force", base, opts or {})
+		end
+
 		bufferline.setup({
 			options = {
 				tab_size = 20,
+				indicator = {
+					style = "none",
+				},
+				separator_style = { "", "" },
 				offsets = {
 					{
 						filetype = "NvimTree",
-						text = "Tree",
+						text = function()
+							return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+						end,
 						text_align = "center",
-						separator = false,
+						separator = true,
 					},
 				},
 				show_buffer_close_icons = false,
 				show_close_icon = false,
+			},
+			highlights = {
+				fill = extend(),
+				background = extend(),
+				buffer_visible = extend(),
+				buffer_selected = extend({ bold = true }),
+				offset_separator = {
+					bg = bg,
+					sp = border,
+				},
+				indicator_visible = extend(),
+				indicator_selected = extend(),
+				trunc_marker = extend({ bold = true }),
 			},
 		})
 
