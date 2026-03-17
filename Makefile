@@ -2,9 +2,6 @@ clean-nvim:
 	rm -rf ~/.local/share/nvim/
 	brew reinstall neovim
 
-generate-snippets:
-	bun run ./generate-snippets.ts
-
 deploy-ghosty:
 	cp -f ghosty.config ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
@@ -16,8 +13,12 @@ deploy-zsh:
 	cp -f .zshrc ~/.zshrc
 	exec zsh
 
+deploy-opencode-commands:
+	mkdir -p ~/.config/opencode/commands
+	rsync -av --delete ./commands/ ~/.config/opencode/commands/
+
 deploy:
-	make generate-snippets
 	make deploy-ghosty
 	make deploy-nvim
+	make deploy-opencode-commands
 	make deploy-zsh
