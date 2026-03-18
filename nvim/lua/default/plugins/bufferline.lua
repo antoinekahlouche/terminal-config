@@ -45,8 +45,11 @@ return {
 			highlights = {
 				fill = extend(),
 				background = extend(),
+				duplicate = extend(),
 				buffer_visible = extend(),
+				duplicate_visible = extend(),
 				buffer_selected = extend({ bold = true }),
+				duplicate_selected = extend({ bold = true }),
 				offset_separator = {
 					bg = bg,
 					sp = border,

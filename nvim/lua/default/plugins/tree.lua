@@ -8,6 +8,7 @@ return {
 			vim.api.nvim_set_hl(0, "NvimTreeFolderName", { link = "NvimTreeFileName" })
 			vim.api.nvim_set_hl(0, "NvimTreeEmptyFolderName", { link = "NvimTreeFolderName" })
 			vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", { link = "NvimTreeFolderName" })
+			vim.api.nvim_set_hl(0, "NvimTreeImageFile", { link = "NvimTreeFileName" })
 			vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { link = "Directory" })
 			vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderIcon", { link = "Directory" })
 		end
