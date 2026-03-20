@@ -15,17 +15,8 @@ preexec() {
     print ""
 }
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="false"
-
-
 # Which plugins would you like to load?
-
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
     zsh-autosuggestions
 )
 
@@ -35,10 +26,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370"
 source $ZSH/oh-my-zsh.sh
 
 setopt prompt_subst
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}<"
-ZSH_THEME_GIT_PROMPT_SUFFIX=">%f"
-PROMPT='%B%F{blue}%~%f%b $(git_prompt_info)
-→ '
+PROMPT='%B%F{blue}%~%f%b → '
 
 # User configuration
 export NVM_DIR="$HOME/.nvm"
