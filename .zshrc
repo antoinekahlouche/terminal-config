@@ -47,7 +47,7 @@ export NVM_DIR="$HOME/.nvm"
 fpath=($fpath "/Users/antoinekahlouche/.zfunctions")
 
 # Aliases
-alias vi="nvim"
+alias vi="nvim -c :NvimTreeOpen"
 alias ls="ls --color -alh"
 
 # Bun path
