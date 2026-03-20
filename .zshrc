@@ -45,7 +45,7 @@ export PATH=$PATH:$HOME/.bun/bin
 # Fzf cd
 cd_to_dir() {
     local selected_dir
-    selected_dir=$(fd -type d . ~/ws/ | fzf)
+    selected_dir=$(fd -t d . ~/ws/ | fzf)
     if [[ -n "$selected_dir" ]]; then
         cd "$selected_dir" || return 1
     fi
