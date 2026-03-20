@@ -50,4 +50,4 @@ cd_to_dir() {
         cd "$selected_dir" || return 1
     fi
 }
-alias cdd='cd_to_dir'
+alias c='cd_to_dir'
