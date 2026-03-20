@@ -36,7 +36,7 @@ fpath=($fpath "/Users/antoinekahlouche/.zfunctions")
 
 # Aliases
 alias vi="nvim -c :NvimTreeOpen"
-alias ls="ls --color -alh"
+alias ls="ls -1AFG"
 alias oc="opencode"
 
 # Bun path
