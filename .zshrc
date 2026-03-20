@@ -49,6 +49,17 @@ fpath=($fpath "/Users/antoinekahlouche/.zfunctions")
 # Aliases
 alias vi="nvim -c :NvimTreeOpen"
 alias ls="ls --color -alh"
+alias oc="opencode"
 
 # Bun path
 export PATH=$PATH:$HOME/.bun/bin
+
+# Fzf cd
+cd_to_dir() {
+    local selected_dir
+    selected_dir=$(fd -t d . ~/ws/ | fzf)
+    if [[ -n "$selected_dir" ]]; then
+        cd "$selected_dir" || return 1
+    fi
+}
+alias cdd='cd_to_dir'
