@@ -43,11 +43,21 @@ alias oc="opencode"
 export PATH=$PATH:$HOME/.bun/bin
 
 # Fzf cd
-cd_to_dir() {
+cdd() {
     local selected_dir
-    selected_dir=$(fd -t d . ~/ws/ | fzf)
+
+    if [[ $# -eq 0 ]]; then
+        selected_dir=$(fd -t d . ~/ws/ | fzf)
+    else
+        selected_dir=$(fd -t d . ~/ws/ | fzf --filter="$*" | while IFS= read -r line; do
+            print -r -- "$line"
+            break
+        done)
+    fi
+
     if [[ -n "$selected_dir" ]]; then
         cd "$selected_dir" || return 1
+        return 0
     fi
+    return 1
 }
-alias c='cd_to_dir'
