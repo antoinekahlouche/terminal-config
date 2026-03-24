@@ -19,7 +19,43 @@ return {
 		})
 
 		vim.api.nvim_create_autocmd("LspAttach", {
-			callback = function()
+			callback = function(args)
+				local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+				if client and client.server_capabilities.documentHighlightProvider then
+					local highlight_group = vim.api.nvim_create_augroup("lsp-document-highlight", { clear = false })
+					local highlighted_word = nil
+
+					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+						buffer = args.buf,
+						group = highlight_group,
+						callback = function()
+							highlighted_word = vim.fn.expand("<cword>")
+							vim.lsp.buf.document_highlight()
+						end,
+					})
+
+					vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+						buffer = args.buf,
+						group = highlight_group,
+						callback = function()
+							if highlighted_word and vim.fn.expand("<cword>") ~= highlighted_word then
+								highlighted_word = nil
+								vim.lsp.buf.clear_references()
+							end
+						end,
+					})
+
+					vim.api.nvim_create_autocmd({ "InsertEnter", "BufLeave" }, {
+						buffer = args.buf,
+						group = highlight_group,
+						callback = function()
+							highlighted_word = nil
+							vim.lsp.buf.clear_references()
+						end,
+					})
+				end
+
 				local bufmap = function(mode, lhs, rhs)
 					local opts = { buffer = true }
 					vim.keymap.set(mode, lhs, rhs, opts)
