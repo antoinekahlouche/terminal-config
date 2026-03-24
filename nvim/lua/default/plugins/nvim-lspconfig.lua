@@ -1,10 +1,11 @@
 return {
 	"neovim/nvim-lspconfig",
 	config = function()
-		local lspconfig = require("lspconfig")
+		vim.lsp.config("ts_ls", {})
+		vim.lsp.config("lua_ls", {})
 
-		lspconfig.ts_ls.setup({})
-		lspconfig.lua_ls.setup({})
+		vim.lsp.enable("ts_ls")
+		vim.lsp.enable("lua_ls")
 
 		vim.diagnostic.config({
 			float = { border = "single" },
