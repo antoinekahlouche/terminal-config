@@ -2,25 +2,9 @@ return {
 	"neovim/nvim-lspconfig",
 	config = function()
 		local lspconfig = require("lspconfig")
-		local ok, local_config = pcall(require, "default.local")
-		local ltex_settings = {
-			language = "en-US",
-		}
 
-		if ok and local_config.language_tool_http_server_uri then
-			ltex_settings.languageToolHttpServerUri = local_config.language_tool_http_server_uri
-		end
-
-		-- lspconfig.eslint.setup({})
 		lspconfig.ts_ls.setup({})
 		lspconfig.lua_ls.setup({})
-		lspconfig.ltex.setup({
-			filetypes = { "gitcommit", "markdown", "text" },
-			settings = {
-				ltex = ltex_settings,
-			},
-		})
-		-- lspconfig.astro.setup({})
 
 		vim.diagnostic.config({
 			float = { border = "single" },
@@ -78,6 +62,5 @@ return {
 				bufmap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 			end,
 		})
-
 	end,
 }
