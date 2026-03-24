@@ -4,25 +4,28 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-buffer",
-        "saadparwaiz1/cmp_luasnip",
+		"saadparwaiz1/cmp_luasnip",
+		"zbirenbaum/copilot-cmp",
 	},
 	config = function()
 		local cmp = require("cmp")
+		require("copilot_cmp").setup()
 
 		cmp.setup({
-            formatting = {
-                fields = { cmp.ItemField.Abbr, cmp.ItemField.Kind },
-            },
+			formatting = {
+				fields = { cmp.ItemField.Abbr, cmp.ItemField.Kind },
+			},
 
-            snippet = {
-                expand = function(args)
-                    require'luasnip'.lsp_expand(args.body)
-                end
-            },
+			snippet = {
+				expand = function(args)
+					require("luasnip").lsp_expand(args.body)
+				end,
+			},
 
 			enable = true,
 
 			sources = {
+				{ name = "copilot" },
 				{ name = "path" },
 				{ name = "luasnip" },
 				{ name = "nvim_lsp" },
@@ -35,10 +38,10 @@ return {
 				completeopt = "menu,menuone,noinsert",
 			},
 
-            window = {
-                completion = { border = 'rounded' },
-                documentation = { border = 'rounded' },
-            },
+			window = {
+				completion = { border = "rounded" },
+				documentation = { border = "rounded" },
+			},
 
 			mapping = cmp.mapping.preset.insert({
 				["<C-SPACE>"] = cmp.mapping.complete(),
@@ -48,4 +51,3 @@ return {
 		})
 	end,
 }
-
