@@ -26,16 +26,17 @@ return {
 
 			sources = {
 				{ name = "copilot" },
+				{ name = "codeium" },
 				{ name = "path" },
 				{ name = "luasnip" },
 				{ name = "nvim_lsp" },
 			},
 
-			preselect = cmp.PreselectMode.Items,
+			preselect = cmp.PreselectMode.None,
 
 			completion = {
-				-- autocomplete = false,
-				completeopt = "menu,menuone,noinsert",
+				autocomplete = { cmp.TriggerEvent.TextChanged },
+				completeopt = "menu,menuone,noinsert,noselect",
 			},
 
 			window = {
