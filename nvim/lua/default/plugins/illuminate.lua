@@ -2,6 +2,14 @@ return {
 	"RRethy/vim-illuminate",
 	event = { "BufReadPost", "BufNewFile" },
 	config = function()
-		require("illuminate").configure({})
+		require("illuminate").configure({
+			filetypes_denylist = {
+				"NvimTree",
+				"help",
+				"lazy",
+				"mason",
+				"TelescopePrompt",
+			},
+		})
 	end,
 }

@@ -36,7 +36,7 @@ return {
 			vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
 			vim.keymap.set("n", "<Right>", api.node.open.edit, opts("Open"))
 
-			-- vim.keymap.set("n", "<LeftRelease>", api.node.open.preview, opts("Preview"))
+			vim.keymap.set("n", "<LeftRelease>", api.node.open.preview, opts("Preview"))
 		end
 
 		local nvimtree = require("nvim-tree")

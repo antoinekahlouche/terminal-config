@@ -32,11 +32,11 @@ return {
 				{ name = "nvim_lsp" },
 			},
 
-			preselect = cmp.PreselectMode.None,
+			preselect = cmp.PreselectMode.ItemField,
 
 			completion = {
 				autocomplete = { cmp.TriggerEvent.TextChanged },
-				completeopt = "menu,menuone,noinsert,noselect",
+				completeopt = "menu,menuone,noinsertt",
 			},
 
 			window = {
@@ -45,8 +45,10 @@ return {
 			},
 
 			mapping = cmp.mapping.preset.insert({
+				["<C-j>"] = cmp.mapping.select_next_item(),
+				["<C-k>"] = cmp.mapping.select_prev_item(),
 				["<C-SPACE>"] = cmp.mapping.complete(),
-				["<CR>"] = cmp.mapping.confirm({ select = false }),
+				["<C-CR>"] = cmp.mapping.confirm({ select = false }),
 				["<ESC>"] = cmp.mapping.abort(),
 			}),
 		})
