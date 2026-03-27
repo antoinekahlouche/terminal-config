@@ -36,7 +36,7 @@ return {
 
 			completion = {
 				autocomplete = { cmp.TriggerEvent.TextChanged },
-				completeopt = "menu,menuone,noinsertt",
+				completeopt = "menu,menuone,noinsert",
 			},
 
 			window = {
@@ -44,13 +44,13 @@ return {
 				documentation = { border = "rounded" },
 			},
 
-			mapping = cmp.mapping.preset.insert({
+			mapping = {
 				["<C-j>"] = cmp.mapping.select_next_item(),
 				["<C-k>"] = cmp.mapping.select_prev_item(),
-				["<C-SPACE>"] = cmp.mapping.complete(),
+				["<C-Space>"] = cmp.mapping.complete(),
 				["<C-CR>"] = cmp.mapping.confirm({ select = false }),
 				["<ESC>"] = cmp.mapping.abort(),
-			}),
+			},
 		})
 	end,
 }
