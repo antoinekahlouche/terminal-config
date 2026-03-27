@@ -39,8 +39,9 @@ alias vi="nvim -c :NvimTreeOpen"
 alias ls="ls -1AFG"
 alias oc="opencode"
 
-# Bun path
+# Path
 export PATH=$PATH:$HOME/.bun/bin
+export PATH=$PATH:$HOME/.local/bin
 
 # Fzf cd
 cdd() {
