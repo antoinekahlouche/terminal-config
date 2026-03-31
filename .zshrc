@@ -10,11 +10,6 @@ precmd() {
     print ""
 }
 
-# Add a separator between command and output
-preexec() {
-    print ""
-}
-
 # Which plugins would you like to load?
 plugins=(
     zsh-autosuggestions
@@ -35,30 +30,16 @@ export NVM_DIR="$HOME/.nvm"
 fpath=($fpath "/Users/antoinekahlouche/.zfunctions")
 
 # Aliases
-alias vi="nvim -c :NvimTreeOpen"
-alias ls="ls -1AFG"
+alias vi="nvim"
+alias ls="eza -a1 --icons=always --group-directories-first"
+alias cd="z"
 alias oc="opencode"
+alias ocw="opencode web --hostname 0.0.0.0"
+alias lg="lazygit"
+alias ld="lazydocker"
 
 # Path
 export PATH=$PATH:$HOME/.bun/bin
 export PATH=$PATH:$HOME/.local/bin
 
-# Fzf cd
-cdd() {
-    local selected_dir
-
-    if [[ $# -eq 0 ]]; then
-        selected_dir=$(fd -t d . ~/ws/ | fzf)
-    else
-        selected_dir=$(fd -t d . ~/ws/ | fzf --filter="$*" | while IFS= read -r line; do
-            print -r -- "$line"
-            break
-        done)
-    fi
-
-    if [[ -n "$selected_dir" ]]; then
-        cd "$selected_dir" || return 1
-        return 0
-    fi
-    return 1
-}
+eval "$(zoxide init zsh)"
