@@ -38,6 +38,7 @@ alias ocw="opencode web --hostname 0.0.0.0"
 alias commit='opencode --prompt "/commit "'
 alias lg="lazygit"
 alias ld="lazydocker"
+alias e="exit"
 
 # Path
 export PATH=$PATH:$HOME/.bun/bin
