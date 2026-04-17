@@ -19,13 +19,11 @@ return {
 			-- DAP adapters
 
 			-- Linters
-			"markdownlint-cli2",
 			"oxlint",
 
 			-- Formatters
-			"markdown-toc",
-			"markdownlint-cli2",
 			"oxfmt",
+			"prettier",
 			"stylua",
 		}
 

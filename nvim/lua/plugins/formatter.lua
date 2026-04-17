@@ -12,5 +12,6 @@ return {
 		opts.formatters_by_ft.json = { "oxfmt" }
 		opts.formatters_by_ft.jsonc = { "oxfmt" }
 		opts.formatters_by_ft.css = { "oxfmt" }
+		opts.formatters_by_ft.yaml = { "prettier" }
 	end,
 }
