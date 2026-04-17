@@ -5,7 +5,7 @@ description: Review changes, propose commits, and commit after confirmation
 Follow the process line by line:
 
 1. **Single or Multiple commit**: review the diff and propose whether it should be one or multiple atomic commits (one logical change per commit). Explain the reasoning.
-2. **Propose commit message(s)**: draft the commit message(s) 
+2. **Propose commit message(s)**: draft the commit message(s)
     - Write in English.
     - Use: Conventional Commits from https://www.conventionalcommits.org/en/v1.0.0/
     - NEVER add `Co-Authored-By` trailers to commit messages.
