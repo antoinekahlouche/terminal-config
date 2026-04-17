@@ -2,6 +2,9 @@ clean-nvim:
 	rm -rf ~/.local/share/nvim/
 	brew reinstall neovim
 
+deploy-editorconfig:
+	cp -f .editorconfig ~/.editorconfig
+
 deploy-ghosty:
 	cp -f ghosty.config ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
@@ -18,6 +21,7 @@ deploy-opencode-commands:
 	rsync -av --delete ./commands/ ~/.config/opencode/commands/
 
 deploy:
+	make deploy-editorconfig
 	make deploy-ghosty
 	make deploy-nvim
 	make deploy-opencode-commands
