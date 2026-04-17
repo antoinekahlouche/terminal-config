@@ -4,27 +4,43 @@ return {
 		opts.ensure_installed = opts.ensure_installed or {}
 
 		local ensure_installed = {
-			-- LSP servers
-			"astro",
-			"docker_compose_language_service",
-			"dockerls",
-			"html",
-			"jsonls",
-			"lua_ls",
-			"marksman",
-			"oxlint",
-			"stylua",
-			"tsgo",
-
-			-- DAP adapters
-
-			-- Linters
-			"oxlint",
-
-			-- Formatters
-			"oxfmt",
+			-- Astro
 			"prettier",
+
+			-- Bash
+			"shellcheck",
+			"shfmt",
+
+			-- CSS
+			"oxfmt",
+			"stylelint",
+
+			-- Docker
+
+			-- HTML
+			"markuplint",
+
+			-- JavaScript
+			"oxlint",
+
+			-- JSON
+			"jsonlint",
+
+			-- Lua
 			"stylua",
+
+			-- Markdown
+
+			-- Python
+			"ruff",
+
+			-- Solid
+
+			-- TOML
+
+			-- TypeScript
+
+			-- YAML
 		}
 
 		for _, tool in ipairs(ensure_installed) do
