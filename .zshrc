@@ -6,7 +6,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME=""
 
 # Add new line before each prompt
-precmd() { 
+precmd() {
     print ""
 }
 
@@ -25,19 +25,20 @@ PROMPT='%B%F{blue}%~%f%b → '
 
 # User configuration
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 fpath=($fpath "/Users/antoinekahlouche/.zfunctions")
 
 # Aliases
 alias vi="nvim"
 alias ls="eza -a1 --icons=always --group-directories-first"
 alias cd="z"
-alias oc="opencode"
+alias oc="opencode --model openai/gpt-5.4"
 alias ocw="opencode web --hostname 0.0.0.0"
-alias commit='opencode --prompt "/commit "'
+alias gc='opencode --model openai/gpt-5.4-mini --prompt "/commit "'
 alias lg="lazygit"
 alias ld="lazydocker"
+alias n="clear"
 alias e="exit"
 
 # Path
