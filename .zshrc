@@ -35,7 +35,15 @@ alias ls="eza -a1 --icons=always --group-directories-first"
 alias cd="z"
 alias oc="opencode --model openai/gpt-5.4"
 alias ocw="opencode web --hostname 0.0.0.0"
-alias gc='opencode --model openai/gpt-5.4-mini --prompt "/commit "'
+commit() {
+    local prompt="/commit"
+
+    if [[ $# -gt 0 ]]; then
+        prompt+=" $*"
+    fi
+
+    opencode --model openai/gpt-5.4-mini --prompt "$prompt"
+}
 alias lg="lazygit"
 alias ld="lazydocker"
 alias n="clear"

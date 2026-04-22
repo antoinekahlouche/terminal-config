@@ -2,15 +2,18 @@
 description: Review changes, propose commits, and commit after confirmation
 ---
 
-Follow the process line by line:
+Review the current git diff and decide whether it should be one commit or multiple atomic commits.
 
-1. **Single or Multiple commit**: review the diff and propose whether it should be one or multiple atomic commits (one logical change per commit). Explain the reasoning.
-2. **Propose commit message(s)**: draft the commit message(s)
-    - Write in English.
-    - Use: Conventional Commits from https://www.conventionalcommits.org/en/v1.0.0/
-    - NEVER add `Co-Authored-By` trailers to commit messages.
-    - ALWAYS ask the user to validate, with a `y/n` question.
-    - NEVER commit without a commit message validation.
-3. **Execute commit(s)**: only after the user validates the message(s), run the git commit command(s).
-4. **Push**: automatically push after committing.
-5. **Done**: the process is finished.
+Rules:
+
+1. Output only the proposed commit message(s), one per line.
+2. Write all commit message(s) in English.
+3. Use Conventional Commits: https://www.conventionalcommits.org/en/v1.0.0/
+4. Never add `Co-Authored-By` trailers.
+5. After the commit message(s), output exactly this line:
+   `r = Reject, c = Commit, p = commit + Push`
+6. Do not output any explanation, summary, rationale, or extra text.
+7. Do not commit until the user explicitly chooses `c` or `p`.
+8. If the user chooses `r`, restart this command from the beginning.
+9. If the user chooses `c`, create the commit(s).
+10. If the user chooses `p`, create the commit(s) and then push.
