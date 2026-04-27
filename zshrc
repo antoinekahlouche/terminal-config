@@ -47,7 +47,7 @@ commit() {
 alias lg="lazygit"
 alias ld="lazydocker"
 alias n="clear"
-alias e="exit"
+alias q="exit"
 
 # Path
 export PATH=$PATH:$HOME/.bun/bin
