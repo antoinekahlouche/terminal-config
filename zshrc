@@ -33,7 +33,7 @@ fpath=($fpath "/Users/antoinekahlouche/.zfunctions")
 alias vi="nvim"
 alias ls="eza -a1 --icons=always --group-directories-first"
 alias cd="z"
-alias oc="opencode --model openai/gpt-5.4"
+alias oc="opencode --model openai/gpt-5.5"
 alias ocw="opencode web --hostname 0.0.0.0"
 commit() {
     local prompt="/commit"
@@ -42,7 +42,7 @@ commit() {
         prompt+=" $*"
     fi
 
-    opencode --model openai/gpt-5.4-mini --prompt "$prompt"
+    opencode --model openai/gpt-5.4-mini-fast --prompt "$prompt"
 }
 alias lg="lazygit"
 alias ld="lazydocker"
