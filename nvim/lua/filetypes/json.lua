@@ -1,11 +1,10 @@
 return {
-	mason = { "oxfmt", "jsonls" },
+	mason = { "oxfmt", "jsonlint" },
 	formatters = {
 		json = { "oxfmt" },
 		jsonc = { "oxfmt" },
 	},
 	linters = {
-		json = { "jsonls" },
-		jsonc = { "jsonls" },
+		json = { "jsonlint" },
 	},
 }
