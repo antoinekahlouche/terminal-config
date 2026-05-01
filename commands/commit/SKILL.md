@@ -1,4 +1,5 @@
 ---
+name: commit
 description: Review changes, propose commits, and commit after confirmation
 ---
 
