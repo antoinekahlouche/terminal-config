@@ -21,7 +21,24 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370"
 source $ZSH/oh-my-zsh.sh
 
 setopt prompt_subst
-PROMPT='%B%F{blue}%~%f%b → '
+
+git_prompt_branch() {
+    local branch
+    branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null) || return
+    printf ' (%s)' "$branch"
+}
+
+git_prompt_branch_color() {
+    git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return
+
+    if git diff --quiet --ignore-submodules HEAD -- 2>/dev/null; then
+        printf '%%F{green}'
+    else
+        printf '%%F{yellow}'
+    fi
+}
+
+PROMPT='%B%F{blue}%~%f%b$(git_prompt_branch_color)$(git_prompt_branch)%f → '
 
 # User configuration
 export NVM_DIR="$HOME/.nvm"
