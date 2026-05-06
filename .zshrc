@@ -7,12 +7,12 @@ ZSH_THEME=""
 
 # Add new line before each prompt
 precmd() {
-    print ""
+	print ""
 }
 
 # Which plugins would you like to load?
 plugins=(
-    zsh-autosuggestions
+	zsh-autosuggestions
 )
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -23,19 +23,19 @@ source $ZSH/oh-my-zsh.sh
 setopt prompt_subst
 
 git_prompt_branch() {
-    local branch
-    branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null) || return
-    printf ' (%s)' "$branch"
+	local branch
+	branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null) || return
+	printf ' (%s)' "$branch"
 }
 
 git_prompt_branch_color() {
-    git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return
+	git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return
 
-    if git diff --quiet --ignore-submodules HEAD -- 2>/dev/null; then
-        printf '%%F{green}'
-    else
-        printf '%%F{yellow}'
-    fi
+	if git diff --quiet --ignore-submodules HEAD -- 2>/dev/null; then
+		printf '%%F{green}'
+	else
+		printf '%%F{yellow}'
+	fi
 }
 
 PROMPT='%B%F{blue}%~%f%b$(git_prompt_branch_color)$(git_prompt_branch)%f → '
@@ -50,16 +50,16 @@ fpath=($fpath "/Users/antoinekahlouche/.zfunctions")
 alias vi="nvim"
 alias ls="eza -a1 --icons=always --group-directories-first"
 alias cd="z"
-alias oc="opencode --model openai/gpt-5.5"
+alias oc="opencode"
 alias ocw="opencode web --hostname 0.0.0.0"
 commit() {
-    local prompt="/commit"
+	local prompt="/commit"
 
-    if [[ $# -gt 0 ]]; then
-        prompt+=" $*"
-    fi
+	if [[ $# -gt 0 ]]; then
+		prompt+=" $*"
+	fi
 
-    opencode --model openai/gpt-5.4-mini-fast --prompt "$prompt"
+	opencode --prompt "$prompt"
 }
 alias lg="lazygit"
 alias ld="lazydocker"
