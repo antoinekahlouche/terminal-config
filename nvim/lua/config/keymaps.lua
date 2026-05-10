@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 
 vim.keymap.set({ "n", "i", "v", "x", "s" }, "<D-s>", "<C-s>", { remap = true, desc = "Save File" })
+vim.keymap.set("n", "<C-c>", "<leader>qq", { remap = true, desc = "Quit All" })
 
 vim.keymap.set("n", "<leader>ba", function()
 	Snacks.bufdelete.all()
