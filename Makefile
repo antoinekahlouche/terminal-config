@@ -16,7 +16,7 @@ deploy-zsh:
 	cp -f .zshrc ~/.zshrc
 	exec zsh
 
-deploy-opencode-commands:
+deploy-opencode:
 	rm -rf ~/.config/opencode/commands
 	mkdir -p ~/.config/opencode/commands
 	rsync -av --delete ./commands/ ~/.config/opencode/commands/
@@ -25,5 +25,5 @@ deploy:
 	make deploy-editorconfig
 	make deploy-ghosty
 	make deploy-nvim
-	make deploy-opencode-commands
+	make deploy-opencode
 	make deploy-zsh
