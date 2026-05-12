@@ -47,7 +47,13 @@ export NVM_DIR="$HOME/.nvm"
 fpath=($fpath "/Users/antoinekahlouche/.zfunctions")
 
 # Aliases
-alias vi="nvim"
+vi() {
+	if [[ $# -eq 0 ]]; then
+		nvim .
+	else
+		nvim "$@"
+	fi
+}
 alias ls="eza -a1 --icons=always --group-directories-first"
 alias cd="z"
 alias oc="opencode"
