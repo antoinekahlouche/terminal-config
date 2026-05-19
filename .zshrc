@@ -59,10 +59,10 @@ alias cd="z"
 alias oc="opencode"
 alias ocw="opencode web --hostname 0.0.0.0"
 commit() {
-	local prompt="/commit"
+	local prompt="/commit "
 
 	if [[ $# -gt 0 ]]; then
-		prompt+=" $*"
+		prompt+="$*"
 	fi
 
 	opencode --prompt "$prompt"
