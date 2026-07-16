@@ -12,6 +12,9 @@ deploy-nvim:
 	rm -rf ~/.config/nvim
 	cp -Rf ./nvim/ ~/.config/nvim/
 
+deploy-tmux:
+	cp -f .tmux.conf ~/.tmux.conf
+
 deploy-zsh:
 	cp -f .zshrc ~/.zshrc
 	exec zsh
@@ -29,4 +32,5 @@ deploy:
 	make deploy-ghosty
 	make deploy-nvim
 	make deploy-opencode
+	make deploy-tmux
 	make deploy-zsh
