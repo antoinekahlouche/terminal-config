@@ -69,10 +69,13 @@ commit() {
 }
 alias lg="lazygit"
 alias ld="lazydocker"
+alias dh="diffhub"
 alias n="clear"
 alias q="exit"
+alias dc="docker compose"
 
 # Path
+export PATH=$PATH:$HOME/.nvm/versions/node/v26.3.1/bin
 export PATH=$PATH:$HOME/.bun/bin
 export PATH=$PATH:$HOME/.local/bin
 
