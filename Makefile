@@ -22,6 +22,7 @@ deploy-opencode:
 	rm -rf ~/.config/opencode/commands
 	mkdir -p ~/.config/opencode/commands
 	rsync -av --delete ./commands/ ~/.config/opencode/commands/
+	cp -f ./AGENTS.md ~/.config/opencode/AGENTS.md
 
 deploy:
 	make deploy-editorconfig
