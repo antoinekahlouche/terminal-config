@@ -17,6 +17,8 @@ deploy-zsh:
 	exec zsh
 
 deploy-opencode:
+	mkdir -p ~/.config/opencode
+	cp -f opencode.json ~/.config/opencode/opencode.json
 	rm -rf ~/.config/opencode/commands
 	mkdir -p ~/.config/opencode/commands
 	rsync -av --delete ./commands/ ~/.config/opencode/commands/
