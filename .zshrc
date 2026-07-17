@@ -58,15 +58,6 @@ alias ls="eza -a1 --icons=always --group-directories-first"
 alias cd="z"
 alias oc="opencode"
 alias ocw="opencode web --hostname 0.0.0.0"
-commit() {
-	local prompt="/commit "
-
-	if [[ $# -gt 0 ]]; then
-		prompt+="$*"
-	fi
-
-	opencode --prompt "$prompt"
-}
 alias lg="lazygit"
 alias ld="lazydocker"
 alias dh="diffhub"
@@ -77,6 +68,6 @@ alias dc="docker compose"
 # Path
 export PATH=$PATH:$HOME/.nvm/versions/node/v26.3.1/bin
 export PATH=$PATH:$HOME/.bun/bin
-export PATH=$PATH:$HOME/.local/bin
+export PATH="$HOME/.local/bin:$PATH"
 
 eval "$(zoxide init zsh)"

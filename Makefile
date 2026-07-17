@@ -27,10 +27,16 @@ deploy-opencode:
 	rsync -av --delete ./commands/ ~/.config/opencode/commands/
 	cp -f ./AGENTS.md ~/.config/opencode/AGENTS.md
 
+deploy-scripts:
+	mkdir -p ~/.local/bin
+	cp -f ./scripts/commit ~/.local/bin/commit
+	chmod +x ~/.local/bin/commit
+
 deploy:
 	make deploy-editorconfig
 	make deploy-ghosty
 	make deploy-nvim
 	make deploy-opencode
+	make deploy-scripts
 	make deploy-tmux
 	make deploy-zsh

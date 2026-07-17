@@ -1,0 +1,58 @@
+#!/bin/sh
+
+set -u
+
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+	printf '%s\n' "commit: not inside a Git repository" >&2
+	exit 1
+fi
+
+branch=$(git symbolic-ref --quiet --short HEAD) || {
+	printf '%s\n' "commit: cannot run from a detached HEAD" >&2
+	exit 1
+}
+
+if opencode run --command commit "$@"; then
+	:
+else
+	status=$?
+	printf '%s\n' "commit: OpenCode failed; push was not attempted" >&2
+	exit "$status"
+fi
+
+current_branch=$(git symbolic-ref --quiet --short HEAD) || {
+	printf '%s\n' "commit: OpenCode left the repository in a detached HEAD; push was not attempted" >&2
+	exit 1
+}
+
+if [ "$current_branch" != "$branch" ]; then
+	printf 'commit: branch changed from %s to %s; push was not attempted\n' "$branch" "$current_branch" >&2
+	exit 1
+fi
+
+if git rev-parse --abbrev-ref --symbolic-full-name '@{upstream}' >/dev/null 2>&1; then
+	git push || exit $?
+else
+	git remote get-url origin >/dev/null 2>&1 || {
+		printf '%s\n' "commit: branch has no upstream and remote 'origin' does not exist" >&2
+		exit 1
+	}
+	git push -u origin HEAD || exit $?
+fi
+
+upstream=$(git rev-parse --abbrev-ref --symbolic-full-name '@{upstream}') || {
+	printf '%s\n' "commit: push completed but no upstream is configured" >&2
+	exit 1
+}
+
+ahead=$(git rev-list --count '@{upstream}..HEAD') || {
+	printf '%s\n' "commit: could not verify the push" >&2
+	exit 1
+}
+
+if [ "$ahead" -ne 0 ]; then
+	printf 'commit: push verification failed; %s is still ahead of %s by %s commit(s)\n' "$branch" "$upstream" "$ahead" >&2
+	exit 1
+fi
+
+printf 'Push verified: %s has no unpushed commits against %s.\n' "$branch" "$upstream"
