@@ -14,6 +14,7 @@ deploy-nvim:
 
 deploy-tmux:
 	cp -f .tmux.conf ~/.tmux.conf
+	if tmux has-session 2>/dev/null; then tmux source-file ~/.tmux.conf; fi
 
 deploy-zsh:
 	cp -f .zshrc ~/.zshrc
