@@ -1,32 +1,12 @@
 {
 	"$schema": "https://opencode.ai/config.json",
 	"agent": {
-		"low": {
-			"description": "Handles simple searches, renames, and mechanical changes with low reasoning effort.",
+		"default": {
+			"description": "General-purpose.",
 			"mode": "subagent",
 			"model": "openai/gpt-5.5",
 			"reasoningEffort": "low",
-			"prompt": "Execute the assigned task directly. Do not delegate to another agent. Return concise findings or completed work to the parent agent.",
-			"permission": {
-				"task": "deny"
-			}
-		},
-		"medium": {
-			"description": "Handles general-purpose research and implementation with medium reasoning effort.",
-			"mode": "subagent",
-			"model": "openai/gpt-5.5",
-			"reasoningEffort": "medium",
 			"prompt": "Execute the assigned task directly and verify the result. Do not delegate to another agent. Return concise findings or completed work to the parent agent.",
-			"permission": {
-				"task": "deny"
-			}
-		},
-		"high": {
-			"description": "Handles complex reasoning, architecture, and difficult debugging with high reasoning effort.",
-			"mode": "subagent",
-			"model": "openai/gpt-5.5",
-			"reasoningEffort": "high",
-			"prompt": "Execute the assigned complex task directly and verify the result thoroughly. Do not delegate to another agent. Return clear findings or completed work to the parent agent.",
 			"permission": {
 				"task": "deny"
 			}
@@ -35,9 +15,7 @@
 	"permission": {
 		"task": {
 			"*": "deny",
-			"low": "allow",
-			"medium": "allow",
-			"high": "allow"
+			"default": "allow"
 		}
 	},
 	"mcp": {
