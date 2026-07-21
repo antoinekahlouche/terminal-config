@@ -69,5 +69,7 @@ alias dc="docker compose"
 export PATH=$PATH:$HOME/.nvm/versions/node/v26.3.1/bin
 export PATH=$PATH:$HOME/.bun/bin
 export PATH="$HOME/.local/bin:$PATH"
+. "$HOME/.atuin/bin/env"
 
 eval "$(zoxide init zsh)"
+eval "$(atuin init zsh)"
