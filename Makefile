@@ -5,6 +5,10 @@ clean-nvim:
 deploy-editorconfig:
 	cp -f .editorconfig ~/.editorconfig
 
+deploy-aerospace:
+	cp -f .aerospace.toml ~/.aerospace.toml
+	if command -v aerospace >/dev/null && pgrep -x AeroSpace >/dev/null; then aerospace reload-config; fi
+
 deploy-ghosty:
 	cp -f ghosty.config ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
@@ -34,6 +38,7 @@ deploy-scripts:
 	chmod +x ~/.local/bin/commit
 
 deploy:
+	make deploy-aerospace
 	make deploy-editorconfig
 	make deploy-ghosty
 	make deploy-nvim
