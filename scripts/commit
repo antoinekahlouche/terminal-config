@@ -71,5 +71,5 @@ esac
 if [ -n "$github_path" ]; then
 	github_path=${github_path%/}
 	github_path=${github_path%.git}
-	printf 'GitHub project: https://github.com/%s\n' "$github_path"
+	printf '\nGitHub project: https://github.com/%s\n' "$github_path"
 fi
