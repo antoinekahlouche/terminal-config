@@ -56,3 +56,20 @@ if [ "$ahead" -ne 0 ]; then
 fi
 
 printf 'Push verified: %s has no unpushed commits against %s.\n' "$branch" "$upstream"
+
+remote=$(git for-each-ref --format='%(upstream:remotename)' "refs/heads/$branch")
+remote_url=$(git remote get-url --push "$remote" 2>/dev/null) || remote_url=
+github_path=
+
+case "$remote_url" in
+	git@github.com:*) github_path=${remote_url#git@github.com:} ;;
+	ssh://git@github.com/*) github_path=${remote_url#ssh://git@github.com/} ;;
+	https://github.com/*) github_path=${remote_url#https://github.com/} ;;
+	http://github.com/*) github_path=${remote_url#http://github.com/} ;;
+esac
+
+if [ -n "$github_path" ]; then
+	github_path=${github_path%/}
+	github_path=${github_path%.git}
+	printf 'GitHub project: https://github.com/%s\n' "$github_path"
+fi
