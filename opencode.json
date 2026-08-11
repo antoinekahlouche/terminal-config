@@ -3,7 +3,8 @@
 	"agent": {
 		"commit": {
 			"description": "Review Git changes and create atomic commits quickly.",
-			"mode": "primary",
+			"mode": "subagent",
+			"hidden": true,
 			"model": "openai/gpt-5.5",
 			"reasoningEffort": "low",
 			"prompt": "Act as a focused Git commit agent. Use the fewest tool calls possible. Inspect the branch, status, staged and unstaged diffs, and recent commit subjects in one tool round. Create one commit unless the changes are clearly independent. Stage only the intended files and commit immediately. Do not delegate, create todos, edit worktree files, run tests, lint, typecheck, or format, ask for confirmation, push, or perform post-commit checks. The calling script handles push verification. If there are no changes, report that concisely.",
