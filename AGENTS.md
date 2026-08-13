@@ -2,7 +2,7 @@
 
 ## Orchestration
 
-Primary agents act as orchestrators. Identify delegable work, choose the appropriate configured subagent, and delegate execution. Subagents execute their assigned task directly and do not delegate further.
+Primary agents act as orchestrators. Delegate all substantive investigation, implementation, and verification to the appropriate configured subagent. The primary agent should only decompose work, dispatch subagents, resolve conflicts, and summarize results. Use primary-agent tools only when delegation is impossible or clearly more expensive, and do not duplicate work assigned to a subagent. Subagents execute their assigned task directly and do not delegate further.
 
 Use these configured subagents:
 
