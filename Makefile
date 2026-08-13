@@ -8,6 +8,10 @@ deploy-editorconfig:
 deploy-ghosty:
 	cp -f ghosty.config ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
+deploy-atuin:
+	mkdir -p ~/.config/atuin
+	cp -f atuin.config ~/.config/atuin/config.toml
+
 deploy-nvim:
 	rm -rf ~/.config/nvim
 	cp -Rf ./nvim/ ~/.config/nvim/
@@ -35,6 +39,7 @@ deploy-scripts:
 
 deploy:
 	make deploy-editorconfig
+	make deploy-atuin
 	make deploy-ghosty
 	make deploy-nvim
 	make deploy-opencode
