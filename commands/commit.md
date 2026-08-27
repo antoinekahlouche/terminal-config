@@ -1,15 +1,18 @@
 ---
-description: Review changes and create atomic commits
+description: Generate a commit message for staged changes
 agent: commit
 ---
 
-Review the current Git changes and create the smallest sensible set of atomic commits.
+Generate one commit message for the staged Git changes.
 
 Rules:
 
-1. Write all commit message(s) in English.
+1. Write the commit message in English.
 2. Use Conventional Commits: https://www.conventionalcommits.org/en/v1.0.0/
-3. Never add `Co-Authored-By` trailers.
-4. Run `git commit` immediately without asking for confirmation.
-5. Prefer one commit; split only changes that are clearly independent.
-6. Do not run tests, lint, typecheck, formatting, push, or post-commit checks.
+3. Output exactly one subject line.
+4. Do not output Markdown, quotes, code fences, or explanations.
+5. Never add `Co-Authored-By` trailers.
+6. Inspect only what is necessary to write the message.
+7. Do not stage files, commit, push, run tests, lint, typecheck, format, or ask questions.
+
+User guidance, if any: $ARGUMENTS

@@ -12,11 +12,35 @@ branch=$(git symbolic-ref --quiet --short HEAD) || {
 	exit 1
 }
 
-if opencode run --command commit "$@"; then
+if git diff --cached --quiet; then
+	git add -A || exit $?
+fi
+
+if git diff --cached --quiet; then
+	printf '%s\n' "commit: nothing to commit" >&2
+	exit 1
+fi
+
+message=$(opencode run --command commit "$@")
+status=$?
+
+if [ "$status" -ne 0 ]; then
+	printf '%s\n' "commit: OpenCode failed; commit and push were not attempted" >&2
+	exit "$status"
+fi
+
+message=$(printf '%s\n' "$message" | sed -n '/[^[:space:]]/p' | sed -n '1p')
+
+if [ -z "$message" ]; then
+	printf '%s\n' "commit: OpenCode returned an empty commit message; commit and push were not attempted" >&2
+	exit 1
+fi
+
+if git commit -m "$message"; then
 	:
 else
 	status=$?
-	printf '%s\n' "commit: OpenCode failed; push was not attempted" >&2
+	printf '%s\n' "commit: git commit failed; push was not attempted" >&2
 	exit "$status"
 fi
 
