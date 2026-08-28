@@ -29,10 +29,16 @@ if [ "$status" -ne 0 ]; then
 	exit "$status"
 fi
 
-message=$(printf '%s\n' "$message" | sed -n '/[^[:space:]]/p' | sed -n '1p')
+raw_message=$message
+message=$(
+	printf '%s\n' "$raw_message" |
+		sed -n '/^[a-z][a-z0-9-]*\([^)][^)]*)\)\{0,1\}\(!\)\{0,1\}: [^[:space:]].*/p' |
+		sed -n '1p'
+)
 
 if [ -z "$message" ]; then
-	printf '%s\n' "commit: OpenCode returned an empty commit message; commit and push were not attempted" >&2
+	printf '%s\n' "commit: OpenCode returned no Conventional Commit subject; commit and push were not attempted" >&2
+	printf '%s\n' "$raw_message" >&2
 	exit 1
 fi
 
