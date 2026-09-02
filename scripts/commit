@@ -30,18 +30,27 @@ if [ "$status" -ne 0 ]; then
 fi
 
 raw_message=$message
-message=$(
+marker_subjects=$(
 	printf '%s\n' "$raw_message" |
-		sed 's/^[[:space:]]*//; s/[[:space:]]*$//; s/^`\(.*\)`$/\1/; s/^"\(.*\)"$/\1/; s/^'\''\(.*\)'\''$/\1/' |
-		sed -n '/^[a-z][a-z0-9-]*\([^)][^)]*)\)\{0,1\}\(!\)\{0,1\}: [^[:space:]].*/p' |
-		sed -n '1p'
+		sed -n 's/^[[:space:]]*\(Task output:[[:space:]]*\)\{0,1\}`\{0,1\}COMMIT_SUBJECT=[[:space:]]*//p' |
+		sed 's/`[[:space:]]*$//; s/[[:space:]]*$//' |
+		sed -n '/^[a-z][a-z0-9-]*\(([^)]*)\)\{0,1\}\(!\)\{0,1\}: [^[:space:]`][^`]*$/p'
 )
+summary_subjects=$(
+	printf '%s\n' "$raw_message" |
+		sed 's/<system-reminder>.*$//' |
+		sed -n 's/^.*`\([a-z][a-z0-9-]*\(([^)]*)\)\{0,1\}\(!\)\{0,1\}: [^`][^`]*\)`.*/\1/p'
+)
+subjects=$(printf '%s\n%s\n' "$marker_subjects" "$summary_subjects" | sed '/^$/d' | sort -u)
+subject_count=$(printf '%s\n' "$subjects" | sed '/^$/d' | wc -l | tr -d '[:space:]')
 
-if [ -z "$message" ]; then
-	printf '%s\n' "commit: OpenCode returned no Conventional Commit subject; commit and push were not attempted" >&2
+if [ "$subject_count" -ne 1 ]; then
+	printf '%s\n' "commit: OpenCode returned zero or multiple Conventional Commit subjects; commit and push were not attempted" >&2
 	printf '%s\n' "$raw_message" >&2
 	exit 1
 fi
+
+message=$(printf '%s\n' "$subjects" | sed -n '1p')
 
 printf 'Commit message: %s\n' "$message"
 
