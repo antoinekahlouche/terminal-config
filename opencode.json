@@ -26,6 +26,24 @@
 			"permission": {
 				"task": "deny"
 			}
+		},
+		"plan": {
+			"permission": {
+				"read": "allow",
+				"glob": "allow",
+				"grep": "allow",
+				"list": "allow",
+				"external_directory": "allow"
+			}
+		},
+		"build": {
+			"permission": {
+				"read": "allow",
+				"glob": "allow",
+				"grep": "allow",
+				"list": "allow",
+				"external_directory": "allow"
+			}
 		}
 	},
 	"permission": {
