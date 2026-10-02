@@ -1,5 +1,18 @@
 # Global OpenCode Rules
 
+## Machine configuration and deployment
+
+- `/Users/antoinekahlouche/ws/dev/terminal-config` is the source of truth for this machine's managed configuration.
+- Make changes to managed configuration in this repository, even when working from another project.
+- Do not edit deployed copies directly. Update their source files in this repository.
+- The repository's `Makefile` is the deployment script. Use it to propagate configuration changes to the machine.
+- For each new configuration file, ensure the `Makefile` includes its repository source path and machine destination path.
+- Add or update a `deploy-*` target when existing deployment rules do not cover the new file.
+- Ensure the main `deploy` target invokes that target. A file is not deployable unless `make deploy` installs it.
+- After configuration or deployment changes, run `make deploy` from this repository.
+- Verify deployment succeeds and the changed files reach their destination paths before reporting completion.
+- If deployment fails, report the failure and resolve it before claiming that the machine configuration is updated.
+
 ## Orchestration
 
 If you have to delegate a task, start `default` subagents.
