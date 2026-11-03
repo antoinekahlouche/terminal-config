@@ -16,26 +16,17 @@ deploy-nvim:
 	rm -rf ~/.config/nvim
 	cp -Rf ./nvim/ ~/.config/nvim/
 
-deploy-tmux:
-	cp -f .tmux.conf ~/.tmux.conf
-	if tmux has-session 2>/dev/null; then tmux source-file ~/.tmux.conf; fi
-
 deploy-zsh:
 	cp -f .zshrc ~/.zshrc
 	exec zsh
 
 deploy-opencode:
 	mkdir -p ~/.config/opencode
-	cp -f opencode.json ~/.config/opencode/opencode.json
 	rm -rf ~/.config/opencode/commands
 	mkdir -p ~/.config/opencode/commands
-	rsync -av --delete ./commands/ ~/.config/opencode/commands/
-	cp -f ./AGENTS.md ~/.config/opencode/AGENTS.md
-
-deploy-scripts:
-	mkdir -p ~/.local/bin
-	cp -f ./scripts/commit ~/.local/bin/commit
-	chmod +x ~/.local/bin/commit
+	rsync -av --delete ./.agents/commands/ ~/.config/opencode/commands/
+	mkdir -p ~/.config/opencode/skills
+	rsync -av --delete ./.agents/skills/ ~/.config/opencode/skills/
 
 deploy:
 	make deploy-editorconfig
@@ -43,6 +34,4 @@ deploy:
 	make deploy-ghosty
 	make deploy-nvim
 	make deploy-opencode
-	make deploy-scripts
-	make deploy-tmux
 	make deploy-zsh

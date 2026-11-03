@@ -57,7 +57,6 @@ vi() {
 alias ls="eza -a1 --icons=always --group-directories-first"
 alias cd="z"
 alias oc="opencode"
-alias ocw="opencode web --hostname 0.0.0.0"
 alias lg="lazygit"
 alias ld="lazydocker"
 alias dh="diffhub"

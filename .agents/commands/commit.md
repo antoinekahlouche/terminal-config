@@ -1,6 +1,5 @@
 ---
 description: Generate a commit message for staged changes
-agent: commit
 ---
 
 Generate one commit message for the staged Git changes.
