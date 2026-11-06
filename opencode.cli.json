@@ -13,11 +13,19 @@
     "scrollbar": false,
     "thinking": "hide",
     "verbosity": "low",
-    "permissions": "autoaccept"
+    "permissions": "autoaccept",
+    "grouping": "auto",
+    "tps": true
   },
   "animations": true,
   "tabs": {
     "mode": "off",
     "layout": "horizontal"
+  },
+  "prompt": {
+    "paste": "full"
+  },
+  "terminal": {
+    "copy": "manual"
   }
 }
