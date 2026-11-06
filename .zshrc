@@ -44,7 +44,7 @@ git_prompt_branch_color() {
 	fi
 }
 
-PROMPT='%B%F{blue}%~%f%b$(git_prompt_branch_color)$(git_prompt_branch)%f → '
+PROMPT='(%m) %B%F{blue}%~%f%b$(git_prompt_branch_color)$(git_prompt_branch)%f -> '
 
 # User configuration
 export NVM_DIR="$HOME/.nvm"
