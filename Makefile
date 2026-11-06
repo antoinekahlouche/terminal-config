@@ -12,6 +12,11 @@ deploy-atuin:
 	mkdir -p ~/.config/atuin
 	cp -f atuin.config ~/.config/atuin/config.toml
 
+deploy-lazygit:
+	mkdir -p ~/Library/Application\ Support/lazygit
+	cp -f lazygit.config ~/Library/Application\ Support/lazygit/config.yml
+	cp -f codex-commit-message.sh ~/Library/Application\ Support/lazygit/codex-commit-message.sh
+
 deploy-nvim:
 	rm -rf ~/.config/nvim
 	cp -Rf ./nvim/ ~/.config/nvim/
@@ -22,6 +27,7 @@ deploy-zsh:
 
 deploy-opencode:
 	mkdir -p ~/.config/opencode
+	cp -f opencode.jsonc ~/.config/opencode/opencode.jsonc
 	rm -rf ~/.config/opencode/commands
 	mkdir -p ~/.config/opencode/commands
 	rsync -av --delete ./.agents/commands/ ~/.config/opencode/commands/
@@ -31,6 +37,7 @@ deploy-opencode:
 deploy:
 	make deploy-editorconfig
 	make deploy-atuin
+	make deploy-lazygit
 	make deploy-ghosty
 	make deploy-nvim
 	make deploy-opencode
