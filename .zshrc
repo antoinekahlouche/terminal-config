@@ -11,14 +11,20 @@ precmd() {
 }
 
 # Which plugins would you like to load?
-plugins=(
-	zsh-autosuggestions
-)
+plugins=()
+if [[ -d "${ZSH_CUSTOM:-$ZSH/custom}/plugins/zsh-autosuggestions" ]]; then
+	plugins+=(zsh-autosuggestions)
+fi
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370"
 
-source $ZSH/oh-my-zsh.sh
+if [[ -f "$ZSH/oh-my-zsh.sh" ]]; then
+	source "$ZSH/oh-my-zsh.sh"
+else
+	autoload -Uz compinit
+	compinit
+fi
 
 setopt prompt_subst
 
@@ -44,7 +50,12 @@ PROMPT='%B%F{blue}%~%f%b$(git_prompt_branch_color)$(git_prompt_branch)%f → '
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-fpath=($fpath "/Users/antoinekahlouche/.zfunctions")
+fpath=($fpath "$HOME/.zfunctions")
+
+# Path
+export PATH="$PATH:$HOME/.bun/bin"
+export PATH="$HOME/.local/bin:$PATH"
+[[ -f "$HOME/.atuin/bin/env" ]] && . "$HOME/.atuin/bin/env"
 
 # Aliases
 vi() {
@@ -54,8 +65,12 @@ vi() {
 		nvim "$@"
 	fi
 }
-alias ls="eza -a1 --icons=always --group-directories-first"
-alias cd="z"
+if command -v eza >/dev/null 2>&1; then
+	alias ls="eza -a1 --icons=always --group-directories-first"
+fi
+if command -v zoxide >/dev/null 2>&1; then
+	alias cd="z"
+fi
 alias oc="opencode"
 alias lg="lazygit"
 alias ld="lazydocker"
@@ -64,11 +79,9 @@ alias n="clear"
 alias q="exit"
 alias dc="docker compose"
 
-# Path
-export PATH=$PATH:$HOME/.nvm/versions/node/v26.3.1/bin
-export PATH=$PATH:$HOME/.bun/bin
-export PATH="$HOME/.local/bin:$PATH"
-. "$HOME/.atuin/bin/env"
-
-eval "$(zoxide init zsh)"
-eval "$(atuin init zsh)"
+if command -v zoxide >/dev/null 2>&1; then
+	eval "$(zoxide init zsh)"
+fi
+if command -v atuin >/dev/null 2>&1; then
+	eval "$(atuin init zsh)"
+fi
