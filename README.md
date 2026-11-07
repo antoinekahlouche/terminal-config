@@ -18,7 +18,6 @@ Open a new shell after deployment.
 
 OpenCode settings are stored in `opencode.jsonc`. Its terminal interface settings are stored in `opencode.cli.json` and deployed as `opencode/cli.json`.
 The interface settings preserve automatic permission acceptance (`session.permissions: "autoaccept"`).
-The Mac-specific Orca plugin reference is excluded. Deployment replaces `cli.json`, so configure any local plugins separately afterward.
 
 ## Requirements
 
@@ -37,6 +36,3 @@ Neovim plugins can require a newer Neovim version than Ubuntu's default package 
 Individual targets such as `make deploy-nvim` and `make deploy-zsh` are also available.
 `make clean-nvim` reinstalls Neovim through Homebrew on macOS or apt on Ubuntu, then removes its local data.
 
-## Tests
-
-Run `make test` with Python 3 installed. Tests deploy into temporary home directories, not your real home.
