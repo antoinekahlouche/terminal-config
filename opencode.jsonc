@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "plugins": ["/Users/antoinekahlouche/ws/dev/terminal-config/theme"],
   "agent": {
     "plan": {
       "color": "#61AFEF"

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://opencode.ai/desktop-theme.json",
+  "name": "One Dark Perso",
+  "id": "one-dark-pro",
+  "light": {
+    "palette": {
+      "neutral": "#282c34",
+      "ink": "#abb2bf",
+      "primary": "#528bff",
+      "success": "#8cc265",
+      "warning": "#d18f52",
+      "error": "#e05561",
+      "info": "#42b3c2"
+    },
+    "overrides": {
+      "syntax-keyword": "#c162de"
+    }
+  },
+  "dark": {
+    "palette": {
+      "neutral": "#282c34",
+      "ink": "#abb2bf",
+      "primary": "#528bff",
+      "success": "#8cc265",
+      "warning": "#d18f52",
+      "error": "#e05561",
+      "info": "#42b3c2"
+    },
+    "overrides": {
+      "syntax-keyword": "#c162de"
+    }
+  }
+}
