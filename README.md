@@ -16,8 +16,18 @@ Deployment copies configuration files. It does not install applications or chang
 Existing configuration files are overwritten. Neovim's configuration is replaced, and OpenCode commands and skills are synchronized with deletion.
 Open a new shell after deployment.
 
-OpenCode settings are stored in `opencode.jsonc`. Its terminal interface settings are stored in `opencode.cli.json` and deployed as `opencode/cli.json`.
+OpenCode settings are stored in `opencode/opencode.jsonc`. Its terminal interface settings are stored in `opencode/opencode.cli.json` and deployed as `${XDG_CONFIG_HOME:-$HOME/.config}/opencode/cli.json`.
 The interface settings preserve automatic permission acceptance (`session.permissions: "autoaccept"`).
+
+## Files
+
+- `shell/`: Zsh and Atuin configuration.
+- `ghosty/`: Ghostty configuration and terminal palette.
+- `lazygit/`: Lazygit configuration and Codex commit-message helper.
+- `nvim/`: Neovim configuration and `.editorconfig`, also deployed to `~/.editorconfig`.
+- `opencode/`: OpenCode configuration and terminal interface settings.
+- `commands/`: OpenCode commands.
+- `skills/`: OpenCode skills.
 
 ## Requirements
 
@@ -35,4 +45,3 @@ Neovim plugins can require a newer Neovim version than Ubuntu's default package 
 
 Individual targets such as `make deploy-nvim` and `make deploy-zsh` are also available.
 `make clean-nvim` reinstalls Neovim through Homebrew on macOS or apt on Ubuntu, then removes its local data.
-
