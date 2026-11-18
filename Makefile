@@ -61,6 +61,8 @@ deploy-opencode:
 	mkdir -p "$(XDG_CONFIG_HOME)/opencode/commands" "$(XDG_CONFIG_HOME)/opencode/skills"
 	rsync -a --delete ./commands/ "$(XDG_CONFIG_HOME)/opencode/commands/"
 	rsync -a --delete ./skills/ "$(XDG_CONFIG_HOME)/opencode/skills/"
+	mkdir -p "$(XDG_CONFIG_HOME)/opencode/scripts"
+	cp -f scripts/opencode-worktree.sh "$(XDG_CONFIG_HOME)/opencode/scripts/opencode-worktree.sh"
 
 deploy: deploy-editorconfig deploy-atuin deploy-lazygit $(GHOSTTY_TARGET) deploy-nvim deploy-opencode deploy-zsh
 	@echo "Configuration deployed for $(UNAME_S). Open a new shell to load .zshrc."
