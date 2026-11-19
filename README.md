@@ -23,7 +23,7 @@ The interface settings preserve automatic permission acceptance (`session.permis
 
 - `shell/`: Zsh and Atuin configuration.
 - `ghosty/`: Ghostty configuration and terminal palette.
-- `lazygit/`: Lazygit configuration and Codex commit-message helper.
+- `lazygit/`: Lazygit configuration and OpenCode commit-message helper.
 - `nvim/`: Neovim configuration and `.editorconfig`, also deployed to `~/.editorconfig`.
 - `opencode/`: OpenCode configuration and terminal interface settings.
 - `commands/`: OpenCode commands.
@@ -39,7 +39,7 @@ sudo apt-get install make rsync zsh
 ```
 
 Install the applications you want to use separately: Neovim, Atuin, Lazygit, Delta, OpenCode, Zoxide, and Eza.
-The Lazygit commit-message command also requires Codex.
+The Lazygit commit-message command requires OpenCode and Python 3. It uses the shared local OpenCode service and creates an archived session for each message.
 Zsh works without Oh My Zsh, Zoxide, Atuin, or Eza. It enables these integrations when available.
 Neovim plugins can require a newer Neovim version than Ubuntu's default package provides.
 

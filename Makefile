@@ -44,7 +44,7 @@ deploy-atuin:
 deploy-lazygit:
 	mkdir -p "$(LAZYGIT_CONFIG_DIR)" "$(HOME)/.local/bin"
 	cp -f lazygit/lazygit.config "$(LAZYGIT_CONFIG_DIR)/config.yml"
-	cp -f lazygit/codex-commit-message.sh "$(HOME)/.local/bin/codex-commit-message.sh"
+	cp -f lazygit/opencode-commit-message.sh "$(HOME)/.local/bin/opencode-commit-message.sh"
 
 deploy-nvim:
 	rm -rf "$(XDG_CONFIG_HOME)/nvim"
