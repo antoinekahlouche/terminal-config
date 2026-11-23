@@ -26,6 +26,6 @@
     "paste": "full"
   },
   "terminal": {
-    "copy": "manual"
+    "copy": "select"
   }
 }
