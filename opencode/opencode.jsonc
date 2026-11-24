@@ -4,5 +4,21 @@
     "plan": {
       "color": "#61AFEF"
     }
+  },
+  "mcp": {
+    "servers": {
+      "browse": {
+        "type": "local",
+        "command": [
+          "/Users/antoinekahlouche/.local/bin/browse",
+          "mcp"
+        ],
+        "cwd": "~",
+        "pool": true,
+        "environment": {
+          "OPENCODE_BROWSER_RUNTIME": "auto-update"
+        }
+      }
+    }
   }
 }

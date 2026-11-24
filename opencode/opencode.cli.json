@@ -4,28 +4,16 @@
     "name": "one-dark",
     "mode": "dark"
   },
-  "diffs": {
-    "wrap": "word",
-    "view": "auto"
-  },
   "session": {
     "sidebar": "hide",
-    "scrollbar": false,
-    "thinking": "hide",
     "verbosity": "low",
     "permissions": "autoaccept",
-    "grouping": "auto",
-    "tps": true
+    "tps": false
   },
-  "animations": true,
   "tabs": {
-    "mode": "off",
-    "layout": "horizontal"
+    "mode": "off"
   },
   "prompt": {
     "paste": "full"
-  },
-  "terminal": {
-    "copy": "select"
   }
 }
