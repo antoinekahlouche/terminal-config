@@ -67,6 +67,13 @@ return {
 					ignored = true,
 					exclude = excluded_patterns,
 					format = format_explorer_item,
+					win = {
+						list = {
+							keys = {
+								["<LeftRelease>"] = "confirm",
+							},
+						},
+					},
 				},
 				files = { hidden = true, ignored = true, exclude = excluded_patterns },
 				grep = { hidden = true, ignored = true, exclude = excluded_patterns },
